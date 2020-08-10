@@ -1,0 +1,71 @@
+PROJEK 2 PEKAN
+- disamain
+- projek : CMS
+- fitur2:
+
+	- halaman admin
+		- dashboard - prioritas rendah
+			- summary: jumlah artikel, jumlah user, dsb
+		- artikel
+			- judul dan isi artikel
+			- gambar utama
+			- kategori 
+			- pembuat artikel
+			- tag dinamis - priroritas rendah
+			- dibuka berdasarkan slug - priroritas rendah
+		- kategori
+		- user 
+			- user crud
+			- 3 role: - prioritas medium
+				admin : bisa semua
+				editor : nggak bisa akses user kecuali diri sendiri
+				author : sama seperti editor tapi tidak bisa akses kategori dan artikel orang lain
+
+	- halaman website
+		- home
+			- artikel populer pakai slide - priroritas medium
+			- daftar artikel
+				- yg tampil: judul, tanggal, author, rangkuman?
+				- pakai pagination
+				- ada komentar di dalam artikel - priroritas medium
+					- nama
+					- komentar
+					- tanggal
+			- daftar kategori
+
+
+	- step:
+		- sekarang = buat trello + design database
+		- buat projek + migration + upload ke server + setting auto deploy
+		- templating halaman admin
+			- diakses di "/admin/nama_module"
+			- pilih template
+			- buat menu sidebar
+		- buat crud kategori
+			- daftar kategori menggunakan tabel
+			- form untuk buat kategori
+			- buat seedernya juga
+		- buat user sekaligus authentication
+			- nggak usah pakai role dulu
+			- yg penting bisa registrasi dan login
+			- buat seedernya juga
+		- buat CRUD artikel
+			- buat kode upload image setelah crudnya jadi
+			- pakai plugin text editor untuk isi artikel
+		-	buat design halaman website
+			- halaman daftar artikel
+			- halaman detail artikel
+		- buat halaman websitenya dinamis
+			- jangan lupa paginasi
+		----------------------------------------------------------------------
+		- buat artikel populer pakai slide
+		- buat role
+		- buat fitur komentar
+		- buat dibuka berdasarkan slug
+		- buat tag dinamis
+
+
+
+
+
+
