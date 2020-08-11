@@ -1,8 +1,10 @@
 <?php
 
+$currentPath = ('/' . request()->path());
+
 $dashboard = [
     'title' => 'Dashboard',
-    'url'   => 'admin/',
+    'url'   => '/admin',
     'icon'  => 'pli-taj-mahal',
 ];
 $categories = [
@@ -12,17 +14,17 @@ $categories = [
     'childrens' => [
         [
             'title' => 'List',
-            'url'   => '/admin/categories/',
+            'url'   => '/admin/categories',
             'icon'  => '',
         ],
         [
             'title' => 'Add',
-            'url'   => '/admin/categories/edit',
+            'url'   => '/admin/categories/create',
             'icon'  => '',
         ],
         [
             'title' => 'Edit',
-            'url'   => '/admin/categories/',
+            'url'   => '/admin/categories/edit',
             'icon'  => '',
         ],
     ],
@@ -39,12 +41,12 @@ $articles = [
         ],
         [
             'title' => 'Create New Article',
-            'url'   => '/admin/articles/edit',
+            'url'   => '/admin/articles/create',
             'icon'  => '',
         ],
         [
             'title' => 'Edit Artilcle',
-            'url'   => '/admin/articles/',
+            'url'   => '/admin/articles/edit',
             'icon'  => '',
         ],
     ],
@@ -144,8 +146,20 @@ $menus = [
                 @foreach($menus as $index => $menu)
 
                     @if(isset($menu['childrens']))
-                    <li>
-                        <a href="#">
+
+                    @php
+                        $isActive = false;
+
+                        foreach($menu['childrens'] as $child ) {
+                            if($child['url'] == $currentPath) {
+                                $isActive = true;
+                            }
+                        }
+
+                    @endphp
+
+                    <li class="{{ $isActive ? 'active-sub' : '' }}">
+                        <a href="{{ $menu['url'] }}">
                             <i class="{{ $menu['icon'] }}"></i>
                             <span class="menu-title">{{ $menu['title'] }}</span>
                             <i class="arrow"></i>
@@ -153,17 +167,18 @@ $menus = [
 
                         <!--Submenu-->
                         @foreach($menu['childrens'] as $child)
-                        <ul class="collapse">
+                        <ul class="collapse {{ $isActive ? 'in' : '' }}">
 
-                            <li><a href="#">{{ $child['title'] }}</a></li>
+                            <li><a href="{{ $child['url'] }}">{{ $child['title'] }}</a></li>
 
                         </ul>
                         @endforeach
                     </li>
 
                     @else
-                        <li>
-                            <a href="#">
+
+                        <li class="">
+                            <a href="{{ $menu['url'] }}">
                                 <i class="{{ $menu['icon'] }}"></i>
                                 <span class="menu-title">{{ $menu['title'] }}</span>
                             </a>

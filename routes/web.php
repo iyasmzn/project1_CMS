@@ -16,8 +16,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('/admin')->group(
-    function () {
-        Route::get('/', 'AdminController@index');
+Route::prefix('/admin')->group(function () {
+    Route::get('/', 'AdminController@index');
+    Route::prefix('/categories')->group(function () {
+        Route::get('/', 'CategoryController@index');
+        Route::get('/create', 'CategoryController@create');
     }
+    );
+}
 );
