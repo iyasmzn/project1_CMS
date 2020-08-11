@@ -1,52 +1,42 @@
 <?php
 
-$currentPath = ('/' . request()->path());
+// $currentPath = ('/' . request()->path());
 
 $dashboard = [
     'title' => 'Dashboard',
-    'url'   => '/admin',
+    'route' => 'admin.dashboard',
     'icon'  => 'pli-taj-mahal',
 ];
 $categories = [
     'title'     => 'Categories',
-    'url'       => '#',
+    'route'     => 'admin.categories',
     'icon'      => 'pli-pie-chart-3',
     'childrens' => [
         [
             'title' => 'List',
-            'url'   => '/admin/categories',
+            'route' => 'admin.categories.index',
             'icon'  => '',
         ],
         [
             'title' => 'Add',
-            'url'   => '/admin/categories/create',
-            'icon'  => '',
-        ],
-        [
-            'title' => 'Edit',
-            'url'   => '/admin/categories/edit',
+            'route' => 'admin.categories.create',
             'icon'  => '',
         ],
     ],
 ];
 $articles = [
     'title'     => 'Articles',
-    'url'       => '#',
+    'route'     => 'admin.articles',
     'icon'      => 'pli-notepad',
     'childrens' => [
         [
             'title' => 'List',
-            'url'   => '/admin/articles/',
+            'route' => 'admin.articles.index',
             'icon'  => '',
         ],
         [
             'title' => 'Create New Article',
-            'url'   => '/admin/articles/create',
-            'icon'  => '',
-        ],
-        [
-            'title' => 'Edit Artilcle',
-            'url'   => '/admin/articles/edit',
+            'route' => 'admin.articles.create',
             'icon'  => '',
         ],
     ],
@@ -118,48 +108,14 @@ $menus = [
                 <li class="list-divider"></li>
 
                 <!--Category name-->
-                <li class="list-header">Submenus</li>
-
-                <!--Menu list item-->
-                <li class="active-sub">
-                    <a href="#">
-                        <i class="pli-mouse-3"></i>
-                        <span class="menu-title">Active State</span>
-                        <i class="arrow"></i>
-                    </a>
-
-                    <!--Submenu-->
-                    <ul class="collapse in">
-                        <li><a href="#">Link</a></li>
-                        <li class="active-link"><a href="#">Active link</a></li>
-                        <li><a href="#">Another link</a></li>
-                        <li><a href="#">Some else here</a></li>
-                        <li class="list-divider"></li>
-                        <li><a href="#">Separate link</a></li>
-
-                    </ul>
-                </li>
-
-
-                <li class="list-divider"></li>
 
                 @foreach($menus as $index => $menu)
 
                     @if(isset($menu['childrens']))
 
-                    @php
-                        $isActive = false;
 
-                        foreach($menu['childrens'] as $child ) {
-                            if($child['url'] == $currentPath) {
-                                $isActive = true;
-                            }
-                        }
-
-                    @endphp
-
-                    <li class="{{ $isActive ? 'active-sub' : '' }}">
-                        <a href="{{ $menu['url'] }}">
+                    <li class="{{ request()->routeIs("$menu[route]*") ? 'active-sub' : '' }}">
+                        <a>
                             <i class="{{ $menu['icon'] }}"></i>
                             <span class="menu-title">{{ $menu['title'] }}</span>
                             <i class="arrow"></i>
@@ -167,9 +123,11 @@ $menus = [
 
                         <!--Submenu-->
                         @foreach($menu['childrens'] as $child)
-                        <ul class="collapse {{ $isActive ? 'in' : '' }}">
+                        <ul class="collapse {{ request()->routeIs("$menu[route]*") ? 'in' : '' }}">
 
-                            <li><a href="{{ $child['url'] }}">{{ $child['title'] }}</a></li>
+                            <li class="{{ request()->routeIs("$child[route]") ? 'active-link' : '' }}">
+                                <a href="{{ route($child['route']) }}">{{ $child['title'] }}</a>\
+                            </li>
 
                         </ul>
                         @endforeach
@@ -177,8 +135,8 @@ $menus = [
 
                     @else
 
-                        <li class="">
-                            <a href="{{ $menu['url'] }}">
+                        <li class="{{ Request::routeIs("$menu[route]") ? 'active-link' : '' }}">
+                            <a href="{{ route($menu['route']) }}">
                                 <i class="{{ $menu['icon'] }}"></i>
                                 <span class="menu-title">{{ $menu['title'] }}</span>
                             </a>
