@@ -35,4 +35,9 @@ class CategoryController extends Controller
         $category = $this->model->find($id)->update($request->all());
         return redirect(route('admin.categories.index'));
     }
+    public function delete($id)
+    {
+        $this->model->find($id)->delete();
+        return redirect(route('admin.categories.index'));
+    }
 }

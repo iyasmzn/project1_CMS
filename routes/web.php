@@ -24,6 +24,7 @@ Route::prefix('/admin')->name('admin.')->group(function () {
         Route::post('/store', 'CategoryController@store')->name('store');
         Route::get('/edit/{id}', 'CategoryController@edit')->name('edit');
         Route::post('/update/{id}', 'CategoryController@update')->name('update');
+        Route::delete('/delete/{id}', 'CategoryController@delete')->name('delete');
     });
     Route::prefix('/articles')->name('articles.')->group(function () {
         Route::get('/', 'ArticleController@index')->name('index');
