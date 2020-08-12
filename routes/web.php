@@ -21,6 +21,7 @@ Route::prefix('/admin')->name('admin.')->group(function () {
     Route::prefix('/categories')->name('categories.')->group(function () {
         Route::get('/', 'CategoryController@index')->name('index');
         Route::get('/create', 'CategoryController@create')->name('create');
+        Route::post('/store', 'CategoryController@store')->name('store');
         Route::get('/edit/', 'CategoryController@create')->name('edit');
     });
     Route::prefix('/articles')->name('articles.')->group(function () {
