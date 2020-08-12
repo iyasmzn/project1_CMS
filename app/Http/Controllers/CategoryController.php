@@ -25,4 +25,14 @@ class CategoryController extends Controller
         $this->model->create($request->all());
         return redirect(route('admin.categories.index'));
     }
+    public function edit($id)
+    {
+        $category = $this->model->find($id);
+        return view(('admin.categories.edit'), compact('category'));
+    }
+    public function update(Request $request, $id)
+    {
+        $category = $this->model->find($id)->update($request->all());
+        return redirect(route('admin.categories.index'));
+    }
 }

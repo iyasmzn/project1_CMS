@@ -22,12 +22,13 @@ Route::prefix('/admin')->name('admin.')->group(function () {
         Route::get('/', 'CategoryController@index')->name('index');
         Route::get('/create', 'CategoryController@create')->name('create');
         Route::post('/store', 'CategoryController@store')->name('store');
-        Route::get('/edit/', 'CategoryController@create')->name('edit');
+        Route::get('/edit/{id}', 'CategoryController@edit')->name('edit');
+        Route::post('/update/{id}', 'CategoryController@update')->name('update');
     });
     Route::prefix('/articles')->name('articles.')->group(function () {
         Route::get('/', 'ArticleController@index')->name('index');
         Route::get('/create', 'ArticleController@create')->name('create');
-        Route::get('/edit/', 'ArticleController@create')->name('edit');
+        Route::get('/edit/{id}', 'ArticleController@create')->name('edit');
     });
 }
 );
