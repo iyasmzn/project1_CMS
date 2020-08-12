@@ -12,3 +12,9 @@
 <!--Premium Icons [ OPTIONAL ]-->
 <link href="{{asset('nifty/get-started/premium/icon-sets/icons/line-icons/premium-line-icons.min.css')}}" rel="stylesheet">
 <link href="{{asset('nifty/get-started/premium/icon-sets/icons/solid-icons/premium-solid-icons.min.css')}}" rel="stylesheet">
+
+
+
+<!--DataTables [ OPTIONAL ]-->
+<link href="{{ asset('nifty/demo/plugins/datatables/media/css/dataTables.bootstrap.css') }}" rel="stylesheet">
+<link href="{{ asset('nifty/demo/plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css') }}" rel="stylesheet">
