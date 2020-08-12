@@ -94,16 +94,7 @@ $menus = [
 
             <ul id="mainnav-menu" class="list-group">
 
-                <!--Category name-->
-                <li class="list-header">Link List</li>
-
-                <!--Menu list item-->
-                <li class="active-link">
-                    <a href="#">
-                        <i class="pli-quill-2"></i>
-                        <span class="menu-title">Active state</span>
-                    </a>
-                </li>
+                <li class="list-header">CMS</li>
 
                 <li class="list-divider"></li>
 
