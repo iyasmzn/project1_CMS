@@ -1,19 +1,18 @@
 @extends('admin.layouts.app')
 @section('title', 'Edit Category')
 @section('content')
-	<form method="post" action="/admin/categories/update/{{ $category->id }}">
+	<form class="form-horizontal" method="post" action="/admin/categories/update/{{ $category->id }}">
 		@csrf
-		<table>
-			<tr>
-				<td>Category Name</td>
-				<td>:</td>
-				<td>
-					<input type="text" name="name" value="{{ $category->name }}">
-				</td>
-			</tr>
-			<tr>
-				<td colspan="3"><button>Edit</button></td>
-			</tr>
-		</table>
+	    <div class="panel-body">
+	        <div class="form-group">
+	            <label class="col-sm-1 control-label" for="demo-hor-inputemail">Name</label>
+	            <div class="col-sm-5">
+	                <input type="text" placeholder="Category Name" id="demo-hor-inputemail" class="form-control" name="name" value="{{ $category->name }}">
+	            </div>
+	        </div>
+	    </div>
+	    <div class="panel-footer text-right">
+	        <button class="btn btn-warning" type="submit">Confirm Edit</button>
+	    </div>
 	</form>
 @endsection
