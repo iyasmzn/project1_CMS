@@ -15,9 +15,25 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home', function () {
+    return view('admin.index');
+});
+Route::get('/login', 'AuthController@login')->name('login');
+Route::get('/register', 'AuthController@register')->name('register');
+Route::post('/register', 'AuthController@registrationProcess')->name('register');
+Route::post('/login', 'AuthController@loginProcess')->name('login');
+Route::post('/logout', 'AuthController@logout')->name('logout');
 
 Route::prefix('/admin')->name('admin.')->group(function () {
     Route::get('/', 'AdminController@index')->name('dashboard');
+    Route::prefix('/users')->name('users.')->group(function () {
+        Route::get('/', 'UserController@index')->name('index');
+        Route::get('/create', 'UserController@create')->name('create');
+        Route::post('/store', 'UserController@store')->name('store');
+        Route::get('/edit/{id}', 'UserController@edit')->name('edit');
+        Route::post('/update/{id}', 'UserController@update')->name('update');
+        Route::delete('/delete/{id}', 'UserController@delete')->name('delete');
+    });
     Route::prefix('/categories')->name('categories.')->group(function () {
         Route::get('/', 'CategoryController@index')->name('index');
         Route::get('/create', 'CategoryController@create')->name('create');
