@@ -64,8 +64,8 @@ $menus = [
                         <span class="pull-right dropdown-toggle">
                             <i class="dropdown-caret"></i>
                         </span>
-                        <p class="mnp-name">name</p>
-                        <span class="mnp-desc">aaron.cha@themeon.net</span>
+                        <p class="mnp-name">{{ auth()->user()->name }}</p>
+                        <span class="mnp-desc">{{ Auth::user()->email }}</span>
                     </a>
                 </div>
                 <div id="profile-nav" class="collapse list-group bg-trans">

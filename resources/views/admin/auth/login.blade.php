@@ -23,7 +23,7 @@
 
 		<!-- BACKGROUND IMAGE -->
 		<!--===================================================-->
-		<div id="bg-overlay"></div>
+		<div id="bg-overlay" style="background-color: black"></div>
 
 
 		<!-- LOGIN FORM -->
