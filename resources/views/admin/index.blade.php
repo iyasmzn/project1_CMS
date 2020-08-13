@@ -25,7 +25,7 @@
 	                </div>
 	            </div>
 	            <div class="media-body">
-	                <p class="text-2x mar-no text-semibold">241</p>
+	                <p class="text-2x mar-no text-semibold">{{ $articles->count() }}</p>
 	                <p class="mar-no">Article</p>
 	            </div>
 	        </div>
