@@ -24,7 +24,7 @@ Route::post('/register', 'AuthController@registrationProcess')->name('register')
 Route::post('/login', 'AuthController@loginProcess')->name('login');
 Route::post('/logout', 'AuthController@logout')->name('logout');
 
-Route::prefix('/admin')->name('admin.')->group(function () {
+Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/', 'AdminController@index')->name('dashboard');
     Route::prefix('/users')->name('users.')->group(function () {
         Route::get('/', 'UserController@index')->name('index');
