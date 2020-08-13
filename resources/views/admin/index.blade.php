@@ -12,7 +12,7 @@
 	                </div>
 	            </div>
 	            <div class="media-body">
-	                <p class="text-2x mar-no text-semibold">241</p>
+	                <p class="text-2x mar-no text-semibold">{{ $categories->count() }}</p>
 	                <p class="mar-no">Category</p>
 	            </div>
 	        </div>

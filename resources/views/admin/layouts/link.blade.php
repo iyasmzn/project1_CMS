@@ -15,6 +15,8 @@
 
 
 
+
 <!--DataTables [ OPTIONAL ]-->
 <link href="{{ asset('nifty/demo/plugins/datatables/media/css/dataTables.bootstrap.css') }}" rel="stylesheet">
 <link href="{{ asset('nifty/demo/plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css') }}" rel="stylesheet">
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css"> -->

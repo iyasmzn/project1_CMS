@@ -20,4 +20,12 @@
     <script src="{{ asset('nifty/demo/plugins/datatables/media/js/jquery.dataTables.js') }}"></script>
 	<script src="{{ asset('nifty/demo/plugins/datatables/media/js/dataTables.bootstrap.js') }}"></script>
 	<script src="{{ asset('nifty/demo/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('nifty/demo/js/demo/tables-datatables.js') }}"></script>
+    <!-- <script src="{{ asset('nifty/demo/js/demo/tables-datatables.js') }}"></script> -->
+    <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script> -->
+
+    <!-- Script -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+           $('#data-table').DataTable();
+        });
+    </script>
