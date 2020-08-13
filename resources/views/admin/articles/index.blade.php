@@ -37,7 +37,7 @@
             <thead>
                 <tr>
                     <th class="col-sm-1">No</th>
-                    <th>User</th>
+                    <th>Creator</th>
                     <th>Category</th>
                     <th>Title</th>
                     <th>Image</th>

@@ -23,6 +23,9 @@
     <!-- <script src="{{ asset('nifty/demo/js/demo/tables-datatables.js') }}"></script> -->
     <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script> -->
 
+    <!--Select2 [ OPTIONAL ]-->
+    <script src="{{ asset('nifty/demo/plugins/select2/js/select2.min.js') }}"></script>
+
     <!-- Script -->
     <script type="text/javascript">
         $(document).ready(function () {

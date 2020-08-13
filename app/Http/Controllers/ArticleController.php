@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Model\Article;
-
-// use Illuminate\Http\Request;
+use App\Model\Category;
+use App\Model\User;
+use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -14,12 +15,14 @@ class ArticleController extends Controller
     }
     public function index()
     {
-        $articles = $this->model->get();
+        $articles = $this->model->all();
         return view('admin.articles.index', compact('articles'));
     }
     public function create()
     {
-        return view('admin.articles.create');
+        $users      = User::all();
+        $categories = Category::all();
+        return view('admin.articles.create', compact('users', 'categories'));
     }
     public function store(Request $request)
     {
