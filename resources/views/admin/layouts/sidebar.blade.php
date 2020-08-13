@@ -64,7 +64,7 @@ $menus = [
                         <span class="pull-right dropdown-toggle">
                             <i class="dropdown-caret"></i>
                         </span>
-                        <p class="mnp-name">Name</p>
+                        <p class="mnp-name">name</p>
                         <span class="mnp-desc">aaron.cha@themeon.net</span>
                     </a>
                 </div>
@@ -78,12 +78,14 @@ $menus = [
                     <a href="#" class="list-group-item">
                         <i class="pli-information icon-lg icon-fw"></i> Help
                     </a>
+
                     <form method="post" action="{{ route('logout') }}">
                         @csrf
                         <button>
                             <i class="pli-unlock icon-lg icon-fw"></i> Logout
                         </button>
                     </form>
+
                     <a href="" class="list-group-item">
                     </a>
                 </div>

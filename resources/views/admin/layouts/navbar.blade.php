@@ -347,7 +347,14 @@
                                         <a href="#"><i class="pli-computer-secure icon-lg icon-fw"></i> Lock screen</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="pli-unlock icon-lg icon-fw"></i> Logout</a>
+
+                                        <form method="post" action="{{ route('logout') }}">
+                                            @csrf
+                                            <button>
+                                                <i class="pli-unlock icon-lg icon-fw"></i> Logout
+                                            </button>
+                                        </form>
+
                                     </li>
                                 </ul>
                             </div>

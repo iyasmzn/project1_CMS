@@ -35,7 +35,7 @@
 		                <h1 class="h3">Account Login</h1>
 		                <p>Sign In to your account</p>
 		            </div>
-		            <form action="{{route('admin.dashboard')}}" method="get">
+		            <form action="{{route('login')}}" method="post">
 		            	@csrf
 		                <div class="form-group">
 		                    <input type="text" class="form-control" placeholder="Username" autofocus name="name">
