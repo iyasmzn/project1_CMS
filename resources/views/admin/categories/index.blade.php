@@ -10,6 +10,9 @@
             transition: all 0.3s;
             font-size: 20px;
         }
+        [class*='action-hover']:hover {
+            font-weight: bold;
+        }
         .action-hover-delete:hover {
             color: red;
         }
