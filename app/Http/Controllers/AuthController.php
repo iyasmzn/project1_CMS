@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -23,5 +24,15 @@ class AuthController extends Controller
         ]);
         User::create($request->all());
         return redirect('/login');
+    }
+    public function loginProcess(Request $request)
+    {
+        $credentials    = $request->only('name', 'password');
+        $isLoginSuccess = Auth::attempt($credentials);
+        if ($isLoginSuccess) {
+            return redirect()->intended('/');
+        } else {
+            return redirect()->back();
+        }
     }
 }
