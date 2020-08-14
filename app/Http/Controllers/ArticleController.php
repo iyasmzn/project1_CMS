@@ -15,10 +15,8 @@ class ArticleController extends Controller
     }
     public function index()
     {
-        $categories = Category::all();
-        $users      = User::all();
-        $articles   = $this->model->all();
-        return view('admin.articles.index', compact('articles', 'categories', 'users'));
+        $articles = $this->model->all();
+        return view('admin.articles.index', compact('articles'));
     }
     public function create()
     {

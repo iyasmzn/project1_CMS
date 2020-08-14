@@ -57,8 +57,8 @@
 
                 <tr>
                     <td>{{ $no++ }}</td>
-                    <td>{{ $article->user_id }}</td>
-                    <td>{{ $article->category_id }}</td>
+                    <td>{{ $article->user->name }}</td>
+                    <td>{{ $article->category->name }}</td>
                     <td>{{ $article->title }}</td>
                     <td class="text-overflow">{{ $article->content }}</td>
                     <td>{{ $article->image }}</td>
