@@ -19,11 +19,11 @@ class ArticleSeeder extends Seeder
         $f                = Factory::create('en_US');
         $users_count      = User::count();
         $categories_count = Category::count();
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             Article::create([
                 'user_id'     => ($i % $users_count) + 1,
                 'category_id' => rand(1, $categories_count),
-                'title'       => $f->realText($maxNbChars = 50, $indexSize = 2),
+                'title'       => $f->realText($maxNbChars = 20, $indexSize = 2),
                 'content'     => $f->realText(),
                 'slug'        => $f->slug(),
             ]);

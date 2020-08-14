@@ -24,6 +24,12 @@
         table.dataTable thead .sorting:after {
             content: '';
         }
+        .text-overflow {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            max-width: 20ch;
+        }
     </style>
 @endsection
 @section('content')
@@ -54,7 +60,7 @@
                     <td>{{ $article->user_id }}</td>
                     <td>{{ $article->category_id }}</td>
                     <td>{{ $article->title }}</td>
-                    <td>{{ $article->content }}</td>
+                    <td class="text-overflow">{{ $article->content }}</td>
                     <td>{{ $article->image }}</td>
                     <td>{{ $article->slug }}</td>
                     <td>

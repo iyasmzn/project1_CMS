@@ -19,6 +19,11 @@
         .action-hover-edit:hover {
             color: aqua;
         }
+        table.dataTable thead .sorting_asc:after,
+        table.dataTable thead .sorting_desc:after,
+        table.dataTable thead .sorting:after {
+            content: '';
+        }
     </style>
 @endsection
 @section('content')
