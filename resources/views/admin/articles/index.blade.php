@@ -37,9 +37,10 @@
             <thead>
                 <tr>
                     <th class="col-sm-1">No</th>
-                    <th>Creator</th>
-                    <th>Category</th>
+                    <th class="col-sm-1">Creator</th>
+                    <th class="col-sm-1">Category</th>
                     <th>Title</th>
+                    <th>Content</th>
                     <th>Image</th>
                     <th>Slug</th>
                     <th class="min-tablet col-sm-1">Action</th>
@@ -53,6 +54,7 @@
                     <td>{{ $article->user_id }}</td>
                     <td>{{ $article->category_id }}</td>
                     <td>{{ $article->title }}</td>
+                    <td>{{ $article->content }}</td>
                     <td>{{ $article->image }}</td>
                     <td>{{ $article->slug }}</td>
                     <td>

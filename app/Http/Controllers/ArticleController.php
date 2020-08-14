@@ -15,8 +15,10 @@ class ArticleController extends Controller
     }
     public function index()
     {
-        $articles = $this->model->all();
-        return view('admin.articles.index', compact('articles'));
+        $categories = Category::all();
+        $users      = User::all();
+        $articles   = $this->model->all();
+        return view('admin.articles.index', compact('articles', 'categories', 'users'));
     }
     public function create()
     {
@@ -31,8 +33,11 @@ class ArticleController extends Controller
     }
     public function edit($id)
     {
-        $articles = $this->model->find($id);
-        return view(('admin.articles.edit'), compact('articles'));
+        $articles   = Article::all();
+        $categories = Category::all();
+        $users      = User::all();
+        $article    = $this->model->find($id);
+        return view(('admin.articles.edit'), compact('articles', 'article', 'categories', 'users'));
     }
     public function update(Request $request, $id)
     {

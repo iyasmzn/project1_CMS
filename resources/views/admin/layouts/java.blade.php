@@ -26,9 +26,20 @@
     <!--Select2 [ OPTIONAL ]-->
     <script src="{{ asset('nifty/demo/plugins/select2/js/select2.min.js') }}"></script>
 
+    <!--Demo script [ DEMONSTRATION ]-->
+    <!-- <script src="{{asset('nifty/demo/js/demo/nifty-demo.min.js')}}"></script> -->
+
+    <!--Summernote [ OPTIONAL ]-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> -->
+    <script src="{{asset('nifty/demo/plugins/summernote/summernote.min.js')}}"></script>
+
     <!-- Script -->
     <script type="text/javascript">
         $(document).ready(function () {
            $('#data-table').DataTable();
+           $('#summernote').summernote({
+            height: 300,
+
+           });
         });
     </script>

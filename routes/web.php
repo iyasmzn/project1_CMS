@@ -46,6 +46,10 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
         Route::get('/', 'ArticleController@index')->name('index');
         Route::get('/create', 'ArticleController@create')->name('create');
         Route::get('/edit/{id}', 'ArticleController@create')->name('edit');
+        Route::post('/store', 'ArticleController@store')->name('store');
+        Route::get('/edit/{id}', 'ArticleController@edit')->name('edit');
+        Route::post('/update/{id}', 'ArticleController@update')->name('update');
+        Route::delete('/delete/{id}', 'ArticleController@delete')->name('delete');
     });
 }
 );

@@ -24,3 +24,10 @@
 
 <!--Select2 [ OPTIONAL ]-->
 <link href="{{ asset('nifty/demo/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
+
+<!--Demo [ DEMONSTRATION ]-->
+<link href="{{asset('nifty/demo/css/demo/nifty-demo.min.css')}}" rel="stylesheet">
+
+<!--Summernote [ OPTIONAL ]-->
+<!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> -->
+<link href="{{asset('nifty/demo/plugins/summernote/summernote.min.css')}}" rel="stylesheet">
