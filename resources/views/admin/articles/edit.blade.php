@@ -72,7 +72,7 @@
 	            <label class="col-sm-1 control-label text-left" for="hor-image">Image</label>
 	            <div class="col-sm-5">
 
-	                <input type="text" placeholder="Title" id="hor-image" class="form-control" name="image">
+	                <input type="text" placeholder="" id="hor-image" class="form-control" name="image">
 
 	            </div>
 	        </div>
@@ -80,7 +80,7 @@
 	            <label class="col-sm-1 control-label text-left" for="hor-slug">Slug</label>
 	            <div class="col-sm-5">
 
-	                <input type="text" placeholder="Title" id="hor-slug" class="form-control" name="slug">
+	                <input type="text" placeholder="" id="hor-slug" class="form-control" name="slug">
 
 	            </div>
 	        </div>
