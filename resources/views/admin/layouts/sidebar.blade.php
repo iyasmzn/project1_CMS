@@ -24,6 +24,23 @@ $categories = [
         ],
     ],
 ];
+$users = [
+    'title'     => 'Users',
+    'route'     => 'admin.users',
+    'icon'      => 'pli-user',
+    'childrens' => [
+        [
+            'title' => 'List',
+            'route' => 'admin.users.index',
+            'icon'  => '',
+        ],
+        [
+            'title' => 'Add',
+            'route' => 'admin.users.create',
+            'icon'  => '',
+        ],
+    ],
+];
 $articles = [
     'title'     => 'Articles',
     'route'     => 'admin.articles',
@@ -43,7 +60,7 @@ $articles = [
 ];
 
 $menus = [
-    $dashboard, $categories, $articles,
+    $dashboard, $users, $categories, $articles,
 ];
 
 ?>
@@ -69,14 +86,8 @@ $menus = [
                     </a>
                 </div>
                 <div id="profile-nav" class="collapse list-group bg-trans">
-                    <a href="#" class="list-group-item">
-                        <i class="pli-male icon-lg icon-fw"></i> View Profile
-                    </a>
-                    <a href="#" class="list-group-item">
+                    <a href="/admin/users/{{ Auth::user()->id }}" class="list-group-item">
                         <i class="pli-gear icon-lg icon-fw"></i> Settings
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="pli-information icon-lg icon-fw"></i> Help
                     </a>
 
                     <form method="post" action="{{ route('logout') }}">

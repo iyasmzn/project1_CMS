@@ -3,6 +3,7 @@
 @section('content')
 	<form class="form-horizontal" method="post" action="/admin/categories/update/{{ $category->id }}">
 		@csrf
+		@method('PUT')
 	    <div class="panel-body">
 	        <div class="form-group">
 	            <label class="col-sm-1 control-label" for="demo-hor-inputemail">Name</label>
