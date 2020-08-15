@@ -26,40 +26,60 @@
         }
     </style>
 @endsection
-@section('content')
-    @php
-        $no = 1;
-    @endphp
-    <a href="{{ route('admin.users.create') }}">Add Data</a>
+@section('users-content')
+    <div class="row pad-btm">
+        <div class="col-sm-6 toolbar-left">
+            <a href="/admin/users/create" id="demo-btn-addrow" class="btn btn-purple">Add New</a>
+            <a href="/admin/users/create" class="btn btn-default"><i class="pli-add-user"></i></a>
+        </div>
+    </div>
+    <!---------------------------------->
 
-    <div class="panel-body">
-        <table id="data-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th class="col-sm-1">No</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th class="min-tablet col-sm-1">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach( $users as $user )
+    <div class="row">
+        @foreach($users as $user)
+        <div class="col-sm-4 col-md-3">
+            <!-- Contact Widget -->
+            <!---------------------------------->
+            <div class="panel pos-rel">
+                <div class="widget-control text-right">
+                    <div class="btn-group dropdown">
+                        <a href="#" class="dropdown-toggle btn btn-trans" data-toggle="dropdown" aria-expanded="false"><i class="psi-dot-vertical icon-lg"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right" style="">
+                            <li><a href="/admin/users/edit/{{ $user->id }}"><i class="icon-lg icon-fw psi-pen-5"></i> Edit</a></li>
+                            <li>
+                                <form action="/admin/users/delete/{{ $user->id }}" method="post">
+                                   @csrf @method('DELETE')
+                                   <button><i class="icon-lg icon-fw pli-recycling"></i> Remove</button>
+                                </form>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="/admin/users/profile/{{ $user->id }}"><i class="icon-lg icon-fw pli-calendar-4"></i> View Details</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pad-all">
+                    <div class="media pad-ver">
+                        <div class="media-left">
+                            <a href="#" class="box-inline"><div alt="Profile Picture" class="img-md img-circle" style="background-image: url('{{ asset("/img/$user->photo") }}');background-size: cover;background-position: center;background-color: gray;"></div></a>
+                        </div>
+                        <div class="media-body pad-top">
+                            <a href="#" class="box-inline">
+                                <span class="text-lg text-semibold text-main">{{ $user->name }}</span>
+                                <p class="text-sm">Free</p>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="pad-btm bord-bt text-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean massa.</p>
+                    <div class="text-center pad-to">
+                        <div class="btn-group">
+                            <a href="/admin/users/edit/{{ $user->id }}" class="btn btn-sm btn-default"><i class="pli-pen-5 icon-lg icon-fw"></i> Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---------------------------------->
 
-                <tr>
-                    <td>{{ $no++ }}</td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>
-                        <a href="/admin/users/edit/{{ $user->id }}"><i class="pli-recycling-2 action-hover-edit"></i></a>
-                        <form method="post" class="form" action="/admin/users/delete/{{ $user->id }}">
-                            @csrf @method('DELETE')
-                            <button class="button"><i class="pli-trash action-hover-delete"></i></button>
-                        </form>
-                    </td>
-                </tr>
-
-            @endforeach
-            </tbody>
-        </table>
+        </div>
+        @endforeach
     </div>
 @endsection

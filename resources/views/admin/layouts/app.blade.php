@@ -86,6 +86,7 @@
                 <!--===================================================-->
                 <div id="page-content">
 
+                @yield('users-content')
 
 
 					<!-- QUICK TIPS -->

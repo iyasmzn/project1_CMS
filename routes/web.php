@@ -31,7 +31,7 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
         Route::get('/create', 'UserController@create')->name('create');
         Route::post('/store', 'UserController@store')->name('store');
         Route::get('/edit/{id}', 'UserController@edit')->name('edit');
-        Route::post('/update/{id}', 'UserController@update')->name('update');
+        Route::put('/update/{id}', 'UserController@update')->name('update');
         Route::delete('/delete/{id}', 'UserController@delete')->name('delete');
     });
     Route::prefix('/categories')->name('categories.')->group(function () {

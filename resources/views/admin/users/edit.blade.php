@@ -1,9 +1,15 @@
 @extends('admin.layouts.app')
 @section('title', 'Add User')
 @section('content')
-	<form class="form-horizontal" method="post" action="/admin/users/update/{{ $user->id }}">
+	<form class="form-horizontal" method="post" action="/admin/users/update/{{ $user->id }}" enctype="multipart/form-data">
 		@csrf @method('PUT')
 	    <div class="panel-body">
+	    	<div class="form-group">
+	    	    <label class="col-md-3 control-label">Upload Image</label>
+	    	    <div class="col-md-9">
+	    	       <input class="pull-left btn btn-primary btn-file" type="file" name="photo_file" accept="image/*">
+	    	    </div>
+	    	</div>
 	        <div class="form-group">
 	            <label class="col-sm-1 control-label" for="demo-hor-inputename">Name</label>
 	            <div class="col-sm-5">
