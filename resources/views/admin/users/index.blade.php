@@ -65,7 +65,7 @@
                         <div class="media-body pad-top">
                             <a href="#" class="box-inline">
                                 <span class="text-lg text-semibold text-main">{{ $user->name }}</span>
-                                <p class="text-sm">Free</p>
+                                <p class="text-sm">Freelance</p>
                             </a>
                         </div>
                     </div>

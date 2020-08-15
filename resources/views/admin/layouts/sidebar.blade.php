@@ -1,6 +1,7 @@
 <?php
 
 // $currentPath = ('/' . request()->path());
+$user_photo = Auth::user()->photo;
 
 $dashboard = [
     'title' => 'Dashboard',
@@ -15,12 +16,12 @@ $categories = [
         [
             'title' => 'List',
             'route' => 'admin.categories.index',
-            'icon'  => '',
+            'icon'  => 'pli-numbering-list',
         ],
         [
             'title' => 'Add',
             'route' => 'admin.categories.create',
-            'icon'  => '',
+            'icon'  => 'pli-add',
         ],
     ],
 ];
@@ -32,12 +33,12 @@ $users = [
         [
             'title' => 'List',
             'route' => 'admin.users.index',
-            'icon'  => '',
+            'icon'  => 'pli-id-3',
         ],
         [
             'title' => 'Add',
             'route' => 'admin.users.create',
-            'icon'  => '',
+            'icon'  => 'pli-add-user',
         ],
     ],
 ];
@@ -49,12 +50,12 @@ $articles = [
         [
             'title' => 'List',
             'route' => 'admin.articles.index',
-            'icon'  => '',
+            'icon'  => 'pli-newspaper',
         ],
         [
             'title' => 'Create New Article',
             'route' => 'admin.articles.create',
-            'icon'  => '',
+            'icon'  => 'pli-file-add',
         ],
     ],
 ];
@@ -75,7 +76,8 @@ $menus = [
             <div id="mainnav-profile" class="mainnav-profile">
                 <div class="profile-wrap text-center">
                     <div class="pad-btm">
-                        <img class="img-circle img-md" src="/img/{{ Auth::user()->photo }}" alt="Profile Picture" style="width: auto;">
+                        <!-- <img class="img-circle img-md" src="/img/{{ Auth::user()->photo }}" alt="Profile Picture" style="width: auto;"> -->
+                        <a href="#" class="box-inline"><div alt="Profile Picture" class="img-md img-circle" style="background-image: url('{{ asset("/img/$user_photo") }}');background-size: cover;background-position: center;background-color: gray;"></div></a>
                     </div>
                     <a href="#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
                         <span class="pull-right dropdown-toggle">
@@ -135,7 +137,7 @@ $menus = [
                         <ul class="collapse {{ request()->routeIs("$menu[route]*") ? 'in' : '' }}">
 
                             <li class="{{ request()->routeIs("$child[route]") ? 'active-link' : '' }}">
-                                <a href="{{ route($child['route']) }}">{{ $child['title'] }}</a>\
+                                <a href="{{ route($child['route']) }}"><i class="{{ $child['icon'] }}"></i> {{ $child['title'] }}</a>
                             </li>
 
                         </ul>
