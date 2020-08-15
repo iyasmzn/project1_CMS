@@ -77,7 +77,7 @@ $menus = [
                 <div class="profile-wrap text-center">
                     <div class="pad-btm">
                         <!-- <img class="img-circle img-md" src="/img/{{ Auth::user()->photo }}" alt="Profile Picture" style="width: auto;"> -->
-                        <a href="#" class="box-inline"><div alt="Profile Picture" class="img-md img-circle" style="background-image: url('{{ asset("/img/$user_photo") }}');background-size: cover;background-position: center;background-color: gray;"></div></a>
+                        <a href="#" class="box-inline"><div alt="Profile Picture" class="img-md img-circle" style="background-image: url('{{ asset("/img/$user_photo") }}');background-size: cover;background-position: center;background-color: none;"></div></a>
                     </div>
                     <a href="#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
                         <span class="pull-right dropdown-toggle">

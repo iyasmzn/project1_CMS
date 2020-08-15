@@ -60,7 +60,7 @@
                 <div class="pad-all">
                     <div class="media pad-ver">
                         <div class="media-left">
-                            <a href="#" class="box-inline"><div alt="Profile Picture" class="img-md img-circle" style="background-image: url('{{ asset("/img/$user->photo") }}');background-size: cover;background-position: center;background-color: gray;"></div></a>
+                            <a href="#" class="box-inline"><div alt="Profile Picture" class="img-md img-circle" style="background-image: url('{{ asset("/img/$user->photo") }}');background-size: cover;background-position: center;background-color: none;"></div></a>
                         </div>
                         <div class="media-body pad-top">
                             <a href="#" class="box-inline">
