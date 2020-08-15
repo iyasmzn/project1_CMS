@@ -19,7 +19,7 @@
 	        <div class="form-group">
 	            <label class="col-sm-1 control-label" for="demo-hor-inputpassword">Password</label>
 	            <div class="col-sm-5">
-	                <input type="password" placeholder="User Password" id="demo-hor-inputpassword" class="form-control" name="password" value="{{ $user->password }}">
+	                <input type="password" placeholder="User Password" id="demo-hor-inputpassword" class="form-control" name="password">
 	            </div>
 	        </div>
 	    </div>

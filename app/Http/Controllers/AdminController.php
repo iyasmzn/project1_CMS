@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Article;
 use App\Model\Category;
+use App\Model\User;
 
 // use Illuminate\Http\Request;
 
@@ -13,6 +14,7 @@ class AdminController extends Controller
     {
         $categories = Category::all();
         $articles   = Article::all();
-        return view('admin.index', compact('categories', 'articles'));
+        $users      = User::all();
+        return view('admin.index', compact('categories', 'articles', 'users'));
     }
 }

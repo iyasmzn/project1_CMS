@@ -22,6 +22,10 @@ class UserController extends Controller
     }
     public function store(Request $request)
     {
+        $encryptPassword = bcrypt($request->password);
+        $request->merge([
+            'password' => $encryptPassword,
+        ]);
         $this->model->create($request->all());
         return redirect('/admin/users/');
     }
@@ -32,6 +36,10 @@ class UserController extends Controller
     }
     public function update(Request $request, $id)
     {
+        $encryptPassword = bcrypt($request->password);
+        $request->merge([
+            'password' => $encryptPassword,
+        ]);
         $user = $this->model->find($id)->update($request->all());
         return redirect(route('admin.users.index'));
     }

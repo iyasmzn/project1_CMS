@@ -86,7 +86,7 @@ $menus = [
                     </a>
                 </div>
                 <div id="profile-nav" class="collapse list-group bg-trans">
-                    <a href="/admin/users/{{ Auth::user()->id }}" class="list-group-item">
+                    <a href="/admin/users/edit/{{ Auth::user()->id }}" class="list-group-item">
                         <i class="pli-gear icon-lg icon-fw"></i> Settings
                     </a>
 
