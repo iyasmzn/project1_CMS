@@ -16,6 +16,11 @@
 		header h1 {
 			font-family: 'Anton', sans-serif;
 		}
+		.popular-title {
+			font-family: 'Anton', sans-serif;
+		}
+		.popular-info {
+		}
 	</style>
 </head>
 <body>
@@ -35,36 +40,33 @@
 	</nav>
 	<header class="h-screen relative bg-black bg-center bg-cover">
 		<div class="h-screen bg-black bg-opacity-50 flex items-center justify-center">
-			<div class="bg-red-100">
-				<div class="sliderAx h-auto">
-				    <div id="slider-1" class="container mx-auto">
-				        <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1422&q=80)">
-				       		<div class="md:w-1/2">
-				        		<p class="font-bold text-sm uppercase">Services</p>
-				        		<p class="text-3xl font-bold">Hello world</p>
-				        		<p class="text-2xl mb-10 leading-none">Carousel with TailwindCSS and jQuery</p>
-				        		<a href="#" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Contact us</a>
+			<div class="bg-red-100"  style="border-radius: 25px 0px 25px 0px;overflow: hidden;box-shadow: 0px 0px 15px black;">
+				<div class="h-auto">
+				    <div id="slider-1" class="container mx-auto max-w-screen-sm">
+				        <div class="bg-cover bg-center h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://www.aljazeera.com/mritems/imagecache/mbdxxlarge/mritems/Images/2020/7/22/63dacc07164e49ffae040419420ebfd9_18.jpg);">
+				       		<div class="md:w-full text-center">
+				        		<p class="font-bold text-sm uppercase text-white bg-red-500 inline-block px-2">HOT</p>
+				        		<p class="popular-title text-3xl text-center" style="background-color: rgba(0,0,0,0.5);">Twitter 'looking' at a possible TikTok tie-up</p>
+				        		<p class="popular-info text-xl mb-10 leading-none text-center"><span  style="background-color: rgba(0,0,0,0.5);line-height: 33px;">The messaging platform has approached under-fire TikTok about a possible deal, according to reports.</span></p>
+				        		<a href="#" class="bg-red-500 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-white hover:text-red-500">Read More >></a>
 				        	</div>
 				    	</div> <!-- container -->
-				      <br>
 				    </div>
-
-				    <div id="slider-2" class="container mx-auto">
-				        <div class="bg-cover bg-top  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544144433-d50aff500b91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)">
-
-				  			<p class="font-bold text-sm uppercase">Services</p>
-				        	<p class="text-3xl font-bold">Hello world</p>
-				        	<p class="text-2xl mb-10 leading-none">Carousel with TailwindCSS and jQuery</p>
-				        	<a href="#" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Contact us</a>
-
+				    <div id="slider-2" class="container mx-auto max-w-screen-sm">
+				        <div class="bg-cover bg-center h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://ichef.bbci.co.uk/news/660/cpsprodpb/13DB7/production/_113953318_mediaitem113953317.jpg">
+				       		<div class="md:w-full text-left">
+				        		<p class="font-bold text-sm uppercase text-white bg-green-500 inline-block px-2">NEW</p>
+				        		<p class="popular-title text-3xl" style="background-color: rgba(0,0,0,0.5);">China restaurant apologises for weighing customers</p>
+				        		<p class="popular-info text-xl mb-10 leading-none"><span  style="background-color: rgba(0,0,0,0.5);line-height: 33px;">A restaurant in central China has apologised for encouraging diners to weigh themselves and then order food accordingly.</span></p>
+				        		<a href="#" class="bg-red-500 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-white hover:text-red-500">Read More >></a>
+				        	</div>
 				    	</div> <!-- container -->
-				      	<br>
 				    </div>
 				</div>
-				<div  class="flex justify-between w-12 mx-auto pb-2">
-				    <button id="sButton1" onclick="sliderButton1()" class="bg-purple-400 rounded-full w-4 pb-2 " ></button>
-				    <button id="sButton2" onclick="sliderButton2() " class="bg-purple-400 rounded-full w-4 p-2"></button>
-				</div>
+			</div>
+			<div  class="flex justify-center w-auto mx-auto absolute inset-x-0 top-0 mt-8 pt-8 z-20">
+			    <button id="sButton1" onclick="sliderButton1()" class="bg-white w-8 rounded pb-2 mx-1" ></button>
+			    <button id="sButton2" onclick="sliderButton2() " class="bg-white w-8 rounded pb-2 mx-1"></button>
 			</div>
 		</div>
 	</header>

@@ -7,8 +7,8 @@ function loopSlider(){
         case 0:{
             $("#slider-1").fadeOut(400);
             $("#slider-2").delay(400).fadeIn(400);
-            $("#sButton1").removeClass("bg-purple-800");
-            $("#sButton2").addClass("bg-purple-800");
+            $("#sButton1").removeClass("bg-red-400");
+            $("#sButton2").addClass("bg-red-400");
         cont=1;
 
         break;
@@ -18,8 +18,8 @@ function loopSlider(){
 
             $("#slider-2").fadeOut(400);
             $("#slider-1").delay(400).fadeIn(400);
-            $("#sButton2").removeClass("bg-purple-800");
-            $("#sButton1").addClass("bg-purple-800");
+            $("#sButton2").removeClass("bg-red-400");
+            $("#sButton1").addClass("bg-red-400");
 
         cont=0;
         break;
@@ -37,8 +37,8 @@ setTimeout(loopSlider(),time);
 function sliderButton1(){
     $("#slider-2").fadeOut(400);
     $("#slider-1").delay(400).fadeIn(400);
-    $("#sButton2").removeClass("bg-purple-800");
-    $("#sButton1").addClass("bg-purple-800");
+    $("#sButton2").removeClass("bg-red-400");
+    $("#sButton1").addClass("bg-red-400");
     reinitLoop(4000);
     cont=0
     }
@@ -46,15 +46,15 @@ function sliderButton1(){
     function sliderButton2(){
     $("#slider-1").fadeOut(400);
     $("#slider-2").delay(400).fadeIn(400);
-    $("#sButton1").removeClass("bg-purple-800");
-    $("#sButton2").addClass("bg-purple-800");
+    $("#sButton1").removeClass("bg-red-400");
+    $("#sButton2").addClass("bg-red-400");
     reinitLoop(4000);
     cont=1
     }
 
     $(window).ready(function(){
         $("#slider-2").hide();
-        $("#sButton1").addClass("bg-purple-800");
+        $("#sButton1").addClass("bg-red-400");
         loopSlider();
     });
 </script>
