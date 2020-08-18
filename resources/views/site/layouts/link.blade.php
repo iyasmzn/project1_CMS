@@ -8,3 +8,6 @@
 <!--Premium Icons [ OPTIONAL ]-->
 <link href="{{asset('nifty/get-started/premium/icon-sets/icons/line-icons/premium-line-icons.min.css')}}" rel="stylesheet">
 <link href="{{asset('nifty/get-started/premium/icon-sets/icons/solid-icons/premium-solid-icons.min.css')}}" rel="stylesheet">
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">

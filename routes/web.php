@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
-Route::get('/', function () {
-    return view('site.index');
+Route::namespace ('Site')->group(function () {
+    Route::get('/', 'HomeController@showData')->name('homeSite');
 });
 Route::get('/home', function () {
     return view('admin.index');

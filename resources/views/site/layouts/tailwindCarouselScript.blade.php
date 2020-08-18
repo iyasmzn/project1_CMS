@@ -1,4 +1,5 @@
 <script>
+    AOS.init();
     var cont=0;
 function loopSlider(){
   var xx= setInterval(function(){

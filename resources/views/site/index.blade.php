@@ -21,6 +21,9 @@
 		}
 		.popular-info {
 		}
+		.news-sinopsis::first-letter {
+			font-size: 2em;
+		}
 	</style>
 </head>
 <body>
@@ -40,8 +43,8 @@
 	</nav>
 	<header class="h-screen relative bg-black bg-center bg-cover">
 		<div class="h-screen bg-black bg-opacity-50 flex items-center justify-center">
-			<div class="bg-red-100"  style="border-radius: 25px 0px 25px 0px;overflow: hidden;box-shadow: 0px 0px 15px black;">
-				<div class="h-auto">
+			<div class="bg-white p-2 max-h-3/4"  style="overflow: hidden;box-shadow: 0px 0px 15px black;">
+				<div class="h-auto" style="overflow: hidden;">
 				    <div id="slider-1" class="container mx-auto max-w-screen-sm">
 				        <div class="bg-cover bg-center h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://www.aljazeera.com/mritems/imagecache/mbdxxlarge/mritems/Images/2020/7/22/63dacc07164e49ffae040419420ebfd9_18.jpg);">
 				       		<div class="md:w-full text-center">
@@ -64,12 +67,53 @@
 				    </div>
 				</div>
 			</div>
-			<div  class="flex justify-center w-auto mx-auto absolute inset-x-0 top-0 mt-8 pt-8 z-20">
+			<div  class="flex justify-center w-auto mx-auto absolute inset-x-0 top-0 mt-4 pt-8 z-20">
 			    <button id="sButton1" onclick="sliderButton1()" class="bg-white w-8 rounded pb-2 mx-1" ></button>
 			    <button id="sButton2" onclick="sliderButton2() " class="bg-white w-8 rounded pb-2 mx-1"></button>
 			</div>
+			<div class="absolute flex justify-center bottom-0 text-white">
+				<a href="#" class="mb-6"><i class="psi-arrow-down text-4xl"></i></a>
+			</div>
+			<div class="absolute bottom-20 right-0 text-white transform rotate-90">
+				<a href="#" class="mb-6">@indonesianNews</a>
+			</div>
 		</div>
 	</header>
+	<div class="flex flex-row justify-around mt-8">
+
+		<div class="w-8/12 p-8">
+		@foreach($articles as $article)
+			<div class="flex flex-row justify-between">
+				<div class="w-1/4 overflow-hidden" data-aos="fade-right"  data-aos-offset="100">
+					<img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/185EF/production/_113932899_gettyimages-1214408745-594x594.jpg">
+				</div>
+				<div class="w-3/4 pl-4" data-aos="fade-right"  data-aos-offset="100" data-aos-delay="150">
+					<p class="news-sinopsis">{{ $article->title }}</p>
+					<p style="text-indent: 20px;">{{ $article->content }}</p>
+				</div>
+			</div>
+			<div class="w-full pt-1 my-3 bg-gray-400" data-aos="fade-right" data-aos-offset="50" data-aos-duration="300" data-aos-easing="ease-in-sine"></div>
+		@endforeach
+		</div>
+
+		<div class="w-4/12 p-8 sm:hidden xl:block">
+			<hr>
+			<div class="">
+				<p>Tags</p>
+				<ul class="list-disc">
+					<li>Tags</li>
+					<li>Tags</li>
+					<li>Tags</li>
+					<li>Tags</li>
+					<li>Tags</li>
+					<li>Tags</li>
+					<li>Tags</li>
+					<li>Tags</li>
+					<li>Tags</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 
 
 
