@@ -61,14 +61,12 @@
 
 	            </div>
 	        </div>
-	        <div class="form-group">
-	            <label class="col-sm-1 control-label text-left" for="hor-image">Image</label>
-	            <div class="col-sm-5">
-
-	                <input type="text" placeholder="" id="hor-image" class="form-control" name="image">
-
-	            </div>
-	        </div>
+	    	<div class="form-group">
+	    	    <label class="col-sm-1 control-label text-left">Image</label>
+	    	    <div class="col-sm-5">
+	    	       <input class="pull-left btn btn-primary btn-file" type="file" name="photo_file" accept="image/*">
+	    	    </div>
+	    	</div>
 	        <div class="form-group">
 	            <label class="col-sm-1 control-label text-left" for="hor-slug">Slug</label>
 	            <div class="col-sm-5">

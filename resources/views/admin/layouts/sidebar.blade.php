@@ -53,7 +53,7 @@ $articles = [
             'icon'  => 'pli-newspaper',
         ],
         [
-            'title' => 'Create New Article',
+            'title' => 'Create Article',
             'route' => 'admin.articles.create',
             'icon'  => 'pli-file-add',
         ],
