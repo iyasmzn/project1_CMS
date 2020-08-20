@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 @section('title', 'Add New Article')
 @section('content')
-	<form class="form-horizontal" method="post" action="/admin/articles/store">
+	<form class="form-horizontal" method="post" action="/admin/articles/store" enctype="multipart/form-data">
 		@csrf
 	    <div class="panel-body">
 	        <div class="form-group">
@@ -64,7 +64,7 @@
 	    	<div class="form-group">
 	    	    <label class="col-sm-1 control-label text-left">Image</label>
 	    	    <div class="col-sm-5">
-	    	       <input class="pull-left btn btn-primary btn-file" type="file" name="photo_file" accept="image/*">
+	    	       <input class="pull-left btn btn-primary btn-file" type="file" name="image_file" accept="image/*">
 	    	    </div>
 	    	</div>
 	        <div class="form-group">
