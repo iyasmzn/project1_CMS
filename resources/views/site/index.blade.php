@@ -94,22 +94,25 @@
 			</div>
 			<div class="w-full pt-1 my-3 bg-gray-400" data-aos="fade-right" data-aos-offset="50" data-aos-duration="300" data-aos-easing="ease-in-sine"></div>
 		@endforeach
+			<div>
+				{{ $articles->links() }}
+			</div>
 		</div>
 
 		<div class="w-4/12 p-8 sm:hidden xl:block">
 			<hr>
 			<div class="">
-				<p>Tags</p>
+				<p>Categories</p>
 				<ul class="list-disc">
-					<li>Tags</li>
-					<li>Tags</li>
-					<li>Tags</li>
-					<li>Tags</li>
-					<li>Tags</li>
-					<li>Tags</li>
-					<li>Tags</li>
-					<li>Tags</li>
-					<li>Tags</li>
+					<li>Categories</li>
+					<li>Categories</li>
+					<li>Categories</li>
+					<li>Categories</li>
+					<li>Categories</li>
+					<li>Categories</li>
+					<li>Categories</li>
+					<li>Categories</li>
+					<li>Categories</li>
 				</ul>
 			</div>
 		</div>
