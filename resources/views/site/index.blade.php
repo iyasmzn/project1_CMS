@@ -52,8 +52,11 @@
 		}
 		.header-info h1 {
 			letter-spacing: 1px;
-			text-indent: https://images6.alphacoders.com/109/thumb-1920-1094480.jpg-read-more {
-			bottom: 20px;left: 50%;transform: translateX(-50%);
+			text-indent: 40px;
+		}
+		.header-image:hover .header-image-hover {
+			transform: scale(1.2);
+			transition: all 1s;
 		}
 	</style>
 </head>
@@ -100,7 +103,7 @@
 			    		26 - 04 - 2020
 			    	</div>
 
-		    		<a href="#" class="header-read-more p-4 hover:bg-red-400 text-red-400 hover:text-white border-2 border-red-400 absolute font-bold rounded transition duration-500">
+		    		<a href="#" class="header-read-more p-4 hover:bg-red-400 text-red-400 hover:text-white border-2 border-red-400 absolute font-bold rounded transition duration-500 mt-8">
 		    			READ MORE
 		    		</a>
 
@@ -171,13 +174,35 @@
 	</div>
 
 
-	<div class="w-full md:container">
-		
+	<div class="w-full bg-black border-t-2" style="border-color: tomato;">
+		<div class="top-bar sm:container mx-auto flex flex-row justify-between items-center text-white" style="border-left: 1px solid tomato;">
+			<div class="flex flex-row">
+				
+				<div class="top-bar-tag h-auto p-4 bg-black hover:bg-red-400 transition duration-500" style="border-right: 1px solid tomato;border-radius: 0px 5px 5px 0;">
+					<a href="" class="w-full text-red-400 hover:text-white transition duration-500">Newest</a>
+				</div>
+				<div class="top-bar-tag h-auto p-4" style="border-right: 1px solid tomato;border-radius: 0px 5px 5px 0;">
+					<a href="" class="w-full text-red-400 hover:text-white transition duration-500">HOT</a>
+				</div>
+				<div class="top-bar-tag h-auto p-4" style="border-right: 1px solid tomato;border-radius: 0px 5px 5px 0;">
+					<a href="" class="w-full text-red-400 hover:text-white transition duration-500">Most Read</a>
+				</div>
+				<div class="top-bar-tag h-auto p-4" style="border-right: 1px solid tomato;border-radius: 0px 5px 5px 0;">
+					<a href="" class="w-full text-red-400 hover:text-white transition duration-500">Category</a>
+				</div>
+
+			</div>
+			<div>
+				<form class="">
+					<input class="p-1 rounded" type="text" name="search">
+				</form>
+			</div>
+		</div>
 	</div>
 
 	<div class="flex flex-row justify-around mt-8 xl:container  sm:w-full mx-auto">
 
-		<div class="w-8/12 p-8">
+		<div class="w-2/3 p-2">
 		@foreach($articles as $article)
 			<div class="flex flex-row justify-between">
 				<div class="w-1/4 overflow-hidden" data-aos="fade-right"  data-aos-offset="100">
@@ -196,7 +221,7 @@
 			</div>
 		</div>
 
-		<div class="w-4/12 p-8 sm:hidden xl:block">
+		<div class="w-1/3 p-8 sm:hidden xl:block">
 			<hr>
 			<div class="">
 				<p>Categories</p>
