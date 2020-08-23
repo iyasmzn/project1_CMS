@@ -44,7 +44,7 @@
 			right: 100px;
 		}
 		.header-info {
-			height: 60%;
+			height: auto;
 			position: absolute;
 			bottom: 0;
 			left: 5%;
@@ -57,6 +57,16 @@
 		.header-image:hover .header-image-hover {
 			transform: scale(1.2);
 			transition: all 1s;
+		}
+		.search-input {
+			background-color: black;
+			width: 0px;
+		}
+		.search-icon:hover {
+			cursor: pointer;
+		}
+		.article-list:hover .image-article {
+			transform: scale(1.2);
 		}
 	</style>
 </head>
@@ -88,7 +98,7 @@
 		    		<h1 class="text-4xl my-5 mt-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		    		tempor incididunt ut labore et dolore magna aliqua</h1> 
 		    		
-		    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    		<p class="mb-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 		    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 		    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -103,7 +113,7 @@
 			    		26 - 04 - 2020
 			    	</div>
 
-		    		<a href="#" class="header-read-more p-4 hover:bg-red-400 text-red-400 hover:text-white border-2 border-red-400 absolute font-bold rounded transition duration-500 mt-8">
+		    		<a href="#" class="header-read-more p-4 hover:bg-red-400 text-red-400 hover:text-white border-2 border-red-400 font-bold rounded transition duration-500 mt-8 mb-8">
 		    			READ MORE
 		    		</a>
 
@@ -118,7 +128,7 @@
 		    		<h1 class="text-4xl my-5 mt-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		    		tempor incididunt ut labore et dolore magna aliqua</h1> 
 		    		
-		    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    		<p class="mb-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 		    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 		    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -133,7 +143,7 @@
 			    		26 - 04 - 2020
 			    	</div>
 
-		    		<a href="#" class="header-read-more p-4 hover:bg-red-400 text-red-400 hover:text-white border-2 border-red-400 absolute font-bold rounded transition duration-500">
+		    		<a href="#" class="header-read-more p-4 hover:bg-red-400 text-red-400 hover:text-white border-2 border-red-400 font-bold rounded transition duration-500 mt-8 mb-8">
 		    			READ MORE
 		    		</a>
 
@@ -148,7 +158,7 @@
 		    		<h1 class="text-4xl my-5 mt-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		    		tempor incididunt ut labore et dolore magna aliqua</h1> 
 		    		
-		    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		    		<p class="mb-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 		    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 		    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -163,7 +173,7 @@
 			    		26 - 04 - 2020
 			    	</div>
 
-		    		<a href="#" class="header-read-more p-4 hover:bg-red-400 text-red-400 hover:text-white border-2 border-red-400 absolute font-bold rounded transition duration-500">
+		    		<a href="#" class="header-read-more p-4 hover:bg-red-400 text-red-400 hover:text-white border-2 border-red-400 font-bold rounded transition duration-500 mt-8 mb-8">
 		    			READ MORE
 		    		</a>
 
@@ -179,22 +189,23 @@
 			<div class="flex flex-row">
 				
 				<div class="top-bar-tag h-auto p-4 bg-black hover:bg-red-400 transition duration-500" style="border-right: 1px solid tomato;border-radius: 0px 5px 5px 0;">
-					<a href="" class="w-full text-red-400 hover:text-white transition duration-500">Newest</a>
+					<a href="#" class="w-full text-red-400 hover:text-white transition duration-500">Newest</a>
 				</div>
 				<div class="top-bar-tag h-auto p-4" style="border-right: 1px solid tomato;border-radius: 0px 5px 5px 0;">
-					<a href="" class="w-full text-red-400 hover:text-white transition duration-500">HOT</a>
+					<a href="#" class="w-full text-red-400 hover:text-white transition duration-500">HOT</a>
 				</div>
 				<div class="top-bar-tag h-auto p-4" style="border-right: 1px solid tomato;border-radius: 0px 5px 5px 0;">
-					<a href="" class="w-full text-red-400 hover:text-white transition duration-500">Most Read</a>
+					<a href="#" class="w-full text-red-400 hover:text-white transition duration-500">Most Read</a>
 				</div>
 				<div class="top-bar-tag h-auto p-4" style="border-right: 1px solid tomato;border-radius: 0px 5px 5px 0;">
-					<a href="" class="w-full text-red-400 hover:text-white transition duration-500">Category</a>
+					<div class="w-full text-red-400 hover:text-white transition duration-500">Category</div>
 				</div>
 
 			</div>
 			<div>
-				<form class="">
-					<input class="p-1 rounded" type="text" name="search">
+				<form class="" onclick="searchShow()">
+					<i class="search-icon pli-magnifi-glass text-2xl"></i>
+					<input class="search-input p-1 rounded" type="text" name="search" placeholder="Search...">
 				</form>
 			</div>
 		</div>
@@ -204,17 +215,16 @@
 
 		<div class="w-2/3 p-2">
 		@foreach($articles as $article)
-			<div class="flex flex-row justify-between">
-				<div class="w-1/4 overflow-hidden" data-aos="fade-right"  data-aos-offset="100">
-					<img src="https://images6.alphacoders.com/109/thumb-1920-1094480.jpg">
-					<p><i>Lorem ipsum dolor sit amet</i></p>
+			<div class="article-list flex flex-row justify-between">
+				<div class="overflow-hidden p-2 bg-black border-4 border-black" data-aos="fade-right"  data-aos-offset="100" style="width:250px;height:200px;">
+					<div class="image-article" style="width:100%;height: 100%;background-image: url('{{ asset("img/" . $article->image) }}');background-size:cover;background-position:center;transition: all 0.5s;"></div>
 				</div>
 				<div class="w-3/4 pl-4" data-aos="fade-right"  data-aos-offset="100" data-aos-delay="150">
 					<p class="news-sinopsis">{{ $article->title }}</p>
-					<p style="text-indent: 20px;">{{ $article->content }}</p>
+					<p style="text-indent: 20px;font-size: 0.8em;">{{ $article->content }}</p>
 				</div>
 			</div>
-			<div class="w-full pt-1 my-3 bg-gray-400" data-aos="fade-right" data-aos-offset="50" data-aos-duration="300" data-aos-easing="ease-in-sine"></div>
+			<div class="w-full pt-1 my-3 bg-red-400" data-aos="fade-right" data-aos-offset="50" data-aos-duration="300" data-aos-easing="ease-in-sine"></div>
 		@endforeach
 			<div>
 				{{ $articles->links() }}
@@ -223,8 +233,9 @@
 
 		<div class="w-1/3 p-8 sm:hidden xl:block">
 			<hr>
+
 			<div class="">
-				<p>Categories</p>
+				<p><i class="psi-pie-chart text-xl"></i> Categories</p>
 				<ul class="list-disc">
 					<li>Categories</li>
 					<li>Categories</li>
@@ -237,7 +248,9 @@
 					<li>Categories</li>
 				</ul>
 			</div>
+
 		</div>
+
 	</div>
 
 

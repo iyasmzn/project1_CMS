@@ -1,6 +1,20 @@
 <script>
+
+    function searchShow() {
+       $('.search-input').animate({width: '200px'}, 'slow'); 
+    };
+    function searchHide() {
+       $('.search-input').animate({width: '0px'}, 'slow'); 
+    };
+
     $(window).ready(function(){
         AOS.init();
+        // $('.search-icon').click(function () {
+        //    $('.search-input').animate({width: '200px'}, 'slow'); 
+        // });
+        function searchShow() {
+           $('.search-input').animate({width: '200px'}, 'slow'); 
+        }
         $('#header-carousel').owlCarousel({
             animateOut: 'fadeOut',
             animateIn: 'fadeIn',
