@@ -14,8 +14,6 @@
 		.header-info h1, .popular-title {
 			font-family: 'Anton', sans-serif;
 		}
-		.popular-info {
-		}
 		.news-sinopsis::first-letter {
 			font-size: 2em;
 		}
@@ -54,9 +52,11 @@
 			letter-spacing: 1px;
 			text-indent: 40px;
 		}
+		.header-image-hover {
+			transition: all 1s;
+		}
 		.header-image:hover .header-image-hover {
 			transform: scale(1.2);
-			transition: all 1s;
 		}
 		.search-input {
 			background-color: black;
@@ -67,6 +67,17 @@
 		}
 		.article-list:hover .image-article {
 			transform: scale(1.2);
+		}
+		.popular-image {
+			background-size: cover;
+			background-position: center;
+		}
+		.popular-card {
+			transition: all 0.5s;
+		}
+		.popular-card:hover {
+			transform: translateY(10px);
+			cursor: pointer;
 		}
 	</style>
 </head>
@@ -183,75 +194,29 @@
 
 	</div>
 
-
-	<div class="w-full bg-black border-t-2" style="border-color: tomato;">
-		<div class="top-bar sm:container mx-auto flex flex-row justify-between items-center text-white" style="border-left: 1px solid tomato;">
-			<div class="flex flex-row">
-				
-				<div class="top-bar-tag h-auto p-4 bg-black hover:bg-red-400 transition duration-500" style="border-right: 1px solid tomato;border-radius: 0px 5px 5px 0;">
-					<a href="#" class="w-full text-red-400 hover:text-white transition duration-500">Newest</a>
+	<div class="bg-gray-200 py-16">
+		<div class="sm:container mx-auto">
+			<h1 class="mb-8 text-3xl font-bold">Most Popular Articles</h1>
+			<div id="popular-carousel" class="owl-carousel owl-theme">
+				<div class="popular-card bg-white border-2 border-gray-300 relative" style="width: 300px;overflow: hidden;border-radius: 7px;">
+					<div class="popular-image w-full bg-black" style="height: 200px;background-image: url('https://images3.alphacoders.com/206/thumb-1920-206999.jpg');"></div>
+					<div class="p-4">
+						<h2 class="text-gray-500">Author</h2>
+						<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</h1>
+					</div>
+					<div class="absolute p-1 bg-red-400 hover:bg-opacity-50 text-white border-2 border-red-400 transition duration-500 w-full" style="top: 5px;left: 50%;transform: translateX(-50%);text-align: center;"><a href="#">Read</a></div>
 				</div>
-				<div class="top-bar-tag h-auto p-4" style="border-right: 1px solid tomato;border-radius: 0px 5px 5px 0;">
-					<a href="#" class="w-full text-red-400 hover:text-white transition duration-500">HOT</a>
+				<div class="popular-card bg-white border-2 border-gray-300 relative" style="width: 300px;overflow: hidden;border-radius: 7px;">
+					<div class="popular-image w-full bg-black" style="height: 200px;background-image: url('https://images3.alphacoders.com/206/thumb-1920-206999.jpg');"></div>
+					<div class="p-4">
+						<h2 class="text-gray-500">Author</h2>
+						<h1>Lorem iaaaaaaaaaaaaaaaaaaaapsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</h1>
+					</div>
 				</div>
-				<div class="top-bar-tag h-auto p-4" style="border-right: 1px solid tomato;border-radius: 0px 5px 5px 0;">
-					<a href="#" class="w-full text-red-400 hover:text-white transition duration-500">Most Read</a>
-				</div>
-				<div class="top-bar-tag h-auto p-4" style="border-right: 1px solid tomato;border-radius: 0px 5px 5px 0;">
-					<div class="w-full text-red-400 hover:text-white transition duration-500">Category</div>
-				</div>
-
-			</div>
-			<div>
-				<form class="" onclick="searchShow()">
-					<i class="search-icon pli-magnifi-glass text-2xl"></i>
-					<input class="search-input p-1 rounded" type="text" name="search" placeholder="Search...">
-				</form>
-			</div>
+			</div>	
 		</div>
 	</div>
-
-	<div class="flex flex-row justify-around mt-8 xl:container  sm:w-full mx-auto">
-
-		<div class="w-2/3 p-2">
-		@foreach($articles as $article)
-			<div class="article-list flex flex-row justify-between">
-				<div class="overflow-hidden p-2 bg-black border-4 border-black" data-aos="fade-right"  data-aos-offset="100" style="width:250px;height:200px;">
-					<div class="image-article" style="width:100%;height: 100%;background-image: url('{{ asset("img/" . $article->image) }}');background-size:cover;background-position:center;transition: all 0.5s;"></div>
-				</div>
-				<div class="w-3/4 pl-4" data-aos="fade-right"  data-aos-offset="100" data-aos-delay="150">
-					<p class="news-sinopsis">{{ $article->title }}</p>
-					<p style="text-indent: 20px;font-size: 0.8em;">{{ $article->content }}</p>
-				</div>
-			</div>
-			<div class="w-full pt-1 my-3 bg-red-400" data-aos="fade-right" data-aos-offset="50" data-aos-duration="300" data-aos-easing="ease-in-sine"></div>
-		@endforeach
-			<div>
-				{{ $articles->links() }}
-			</div>
-		</div>
-
-		<div class="w-1/3 p-8 sm:hidden xl:block">
-			<hr>
-
-			<div class="">
-				<p><i class="psi-pie-chart text-xl"></i> Categories</p>
-				<ul class="list-disc">
-					<li>Categories</li>
-					<li>Categories</li>
-					<li>Categories</li>
-					<li>Categories</li>
-					<li>Categories</li>
-					<li>Categories</li>
-					<li>Categories</li>
-					<li>Categories</li>
-					<li>Categories</li>
-				</ul>
-			</div>
-
-		</div>
-
-	</div>
+	
 
 
 

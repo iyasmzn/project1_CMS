@@ -31,5 +31,13 @@
             autoplayTimeout:3000,
             autoplayHoverPause:true
         });
+        $('#popular-carousel').owlCarousel({
+            loop:true,
+            margin:10,
+            autoWidth: true,
+            nav:true,
+            autoplay:true,
+            autoplayTimeout:3000,
+        });
     });
 </script>
