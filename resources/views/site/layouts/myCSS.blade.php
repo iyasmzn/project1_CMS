@@ -1,4 +1,7 @@
 <style type="text/css">
+	body {
+		overflow-x: hidden;
+	}
 	#nav-logo {
 		font-family: 'Lobster', cursive;
 	}
@@ -114,5 +117,10 @@
 		transition: all 0.3s;
 		color: tomato;
 		cursor: pointer;	
+	}
+	.search-page {
+		z-index: 200;transform: translateX(350px);
+		right: 0;
+		transition: all 0.5s;
 	}
 </style>

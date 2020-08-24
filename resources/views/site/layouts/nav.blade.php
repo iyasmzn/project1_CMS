@@ -10,7 +10,14 @@
 			<a href="#" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-white transition duration-500">BLOG</a>
 			<a href="#" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-white transition duration-500">NEWS</a>
 			<a href="#" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-white transition duration-500">CONTACT US</a>
-			<a href="#" class="mx-4 text-lg hover:text-red-400 transition duration-500"><i class="pli-magnifi-glass text-4xl"></i></a>
+			<a class="mx-4 text-lg hover:text-red-400 transition duration-500" onclick="showSearchPage();"><i class="pli-magnifi-glass text-4xl"></i></a>
 		</div>
 	</div>
 </nav>
+<div class="absolute w-full h-screen" style="overflow: hidden;">
+	<div class="search-page fixed top-0 bg-black bg-opacity-50 p-8">
+		<form>
+			<input type="text" name="search">	
+		</form>
+	</div>
+</div>

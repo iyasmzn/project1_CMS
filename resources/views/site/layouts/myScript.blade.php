@@ -6,7 +6,9 @@
     function searchHide() {
        $('.search-input').animate({width: '0px'}, 'slow'); 
     };
-
+    function showSearchPage() {
+       $('.search-page').css({transform: 'translateX(0px)'}, 'slow');   
+    }
     $(window).ready(function(){
         AOS.init();
         // $('.search-icon').click(function () {
