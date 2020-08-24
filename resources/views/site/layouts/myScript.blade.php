@@ -29,7 +29,6 @@
             smartSpeed: 200,
             autoplay:true,
             autoplayTimeout:3000,
-            autoplayHoverPause:true
         });
         $('#popular-carousel').owlCarousel({
             loop:true,
@@ -39,6 +38,7 @@
             dots:false,
             autoplay:true,
             autoplayTimeout:3000,
+            autoplayHoverPause:true
         });
     });
 </script>

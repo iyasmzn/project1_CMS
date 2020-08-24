@@ -21,7 +21,7 @@ class HomeController extends Controller
     public function showData()
     {
         $categories = $this->category->all();
-        $articles   = DB::table('articles')->paginate(9);
+        $articles   = DB::table('articles')->paginate(12);
         return view('site.index', compact('categories', 'articles'));
     }
 }

@@ -14,6 +14,15 @@
 		.header-info h1, .popular-title {
 			font-family: 'Anton', sans-serif;
 		}
+		.font-poppins {
+			font-family: 'Poppins', sans-serif;
+		}
+		.font-didact {
+			font-family: 'Didact Gothic', sans-serif;
+		}
+		.font-spartan {
+			font-family: 'Spartan', sans-serif;
+		}
 		.news-sinopsis::first-letter {
 			font-size: 2em;
 		}
@@ -91,9 +100,13 @@
 		.read-button-popular:hover {
 			background-color: tomato;
 		}
+		.latest-article-card-image {
+			height: 250px;
+		}
 	</style>
 </head>
 <body>
+	@include('site.layouts.customFuncPHP')
 	<nav id="nav" class="fixed inset-x-0 top-0 z-10 text-white" style="background-color: rgba(0,0,0,0.7);">
 		<div class="sm:container flex flex-row justify-between mx-auto">
 			<div id="nav-logo" class="p-4">
@@ -132,7 +145,7 @@
 			    		MOST READ
 			    	</div>
 
-			    	<div class="header-info-date p-2 pl-4 bg-black text-white bg-opacity-50 absolute bottom-0 right-0" style="border-radius: 7px 0 0 0;">
+			    	<div class="header-info-date p-2 pl-4 bg-black text-white bg-opacity-50 absolute bottom-0 right-0 font-spartan" style="border-radius: 7px 0 0 0;">
 			    		26 - 04 - 2020
 			    	</div>
 
@@ -162,7 +175,7 @@
 			    		MOST READ
 			    	</div>
 
-			    	<div class="header-info-date p-2 pl-4 bg-black text-white bg-opacity-50 absolute bottom-0 right-0" style="border-radius: 7px 0 0 0;">
+			    	<div class="header-info-date p-2 pl-4 bg-black text-white bg-opacity-50 absolute bottom-0 right-0 font-spartan" style="border-radius: 7px 0 0 0;">
 			    		26 - 04 - 2020
 			    	</div>
 
@@ -192,7 +205,7 @@
 			    		MOST READ
 			    	</div>
 
-			    	<div class="header-info-date p-2 pl-4 bg-black text-white bg-opacity-50 absolute bottom-0 right-0" style="border-radius: 7px 0 0 0;">
+			    	<div class="header-info-date p-2 pl-4 bg-black text-white bg-opacity-50 absolute bottom-0 right-0 font-spartan" style="border-radius: 7px 0 0 0;">
 			    		26 - 04 - 2020
 			    	</div>
 
@@ -208,18 +221,18 @@
 
 	<div class="bg-gray-200 py-16">
 		<div class="xl:px-32 md:px-12 sm:px-2 mx-auto">
-			<h1 class="mb-8 text-3xl font-bold">Most Popular Articles</h1>
+			<h1 class="mb-8 text-3xl font-bold font-spartan">Most Popular Articles</h1>
 			<div id="popular-carousel" class="owl-carousel owl-theme">
 
 				<?php for ($i=0; $i < 12; $i++) { ?>
 				<div class="popular-card bg-white border-2 border-gray-300 relative font-bold" style="width: 300px;overflow: hidden;border-radius: 7px;">
 					<div class="popular-image w-full bg-black" style="height: 200px;background-image: url('https://images3.alphacoders.com/206/thumb-1920-206999.jpg');"></div>
 					<div class="p-4">
-						<h2 class="text-gray-500">Author</h2>
-						<h1 class="popular-card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</h1>
+						<h2 class="text-gray-500 font-spartan">Author</h2>
+						<h1 class="popular-card-title font-poppins">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</h1>
 					</div>
 					<div class="popular-tag-card absolute top-0 left-0 m-2 ml-4 p-1 px-3 text-white font-bold" style="border-radius: 20px;background-color: rgba(0,0,0,0.1);transition: all 0.5s;">
-						Article
+						CATEGORY
 					</div>
 					<div class="read-button-popular absolute p-4 px-8 bg-black bg-opacity-50 text-white border-2 border-transparent transition duration-500 rounded font-bold" style="top: 50%;left: 50%;transform: translate(-50%,-150%);text-align: center;opacity: 0;"><a href="#">READ</a></div>
 				</div>
@@ -231,10 +244,17 @@
 
 	<div class="pt-16 bg-white">
 		<div class="sm:container mx-auto">
-			<h1 class="mb-8 text-3xl font-bold">Latest Articles</h1>
-			<div class="grid grid-cols-3 gap-3 my-4">
+			<h1 class="mb-8 text-3xl font-bold font-spartan">Latest Articles</h1>
+			<div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 my-4">
 				@foreach($articles as $article)
-					<div class="text-center bg-gray-200">{{ $article->title }}</div>
+					<div class="mb-4 mt-1">
+						<div class="latest-article-card-image rounded-lg bg-gray-200"></div>
+						<div class="font-bold p-4">
+							<p class="text-sm py-1 text-gray-500 font-poppins">Creator | Date</p>
+							<h1 class="py-2 font-spartan">{{ $article->title }}</h1>
+							<p class="font-light text-sm font-didact" style="text-indent: 20px;">{{ short_char($article->content, 90) }}</p>
+						</div>
+					</div>
 				@endforeach
 			</div>
 		</div>
@@ -245,13 +265,78 @@
 		</div>
 	</div>
 
-	<div class="py-16 bg-white">
-		<div class="md:container mx-auto">
-			<div class=""></div>
+	<div class="bg-white w-full">
+		<div class="xl:w-3/4 md:w-full py-16 mx-auto border-b-2 border-gray-200">
+			<div class="grid grid-cols-6 gap-2">
+				<div class="col-span-2 p-2">
+					<h1 class="footer-card-title font-bold text-xl font-poppins"><i class="psi-face-style text-4xl pr-3"></i>Made by Iyasmzn.</h1>
+					<p class="font-didact font-light py-3 pl-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore</p>
+					<p class="font-didact font-light py-3 pl-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore</p>
+					<form class="mt-4">
+						<input type="email" name="email" value="Your Email here...">
+						<button>Submit</button>
+					</form>
+				</div>
+				<div class="p-2">
+					<h1 class="footer-card-title font-bold text-xl font-poppins pb-2">Products</h1>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+				</div>
+				<div class="p-2">
+					<h1 class="footer-card-title font-bold text-xl font-poppins pb-2">Articles</h1>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+				</div>
+				<div class="p-2">
+					<h1 class="footer-card-title font-bold text-xl font-poppins pb-2">Company</h1>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+					<p class="font-didact font-light py-1 pl-2">Lorem ipsum dolor sit</p>
+				</div>
+				<div class="p-2">
+					<h1 class="footer-card-title font-bold text-xl font-poppins pb-2">Follow Us</h1>
+					<p class="font-didact font-light py-1 pl-2">Twitter</p>
+					<p class="font-didact font-light py-1 pl-2">Instagram</p>
+					<p class="font-didact font-light py-1 pl-2">Facebook</p>
+					<p class="font-didact font-light py-1 pl-2">Telegram</p>
+					<p class="font-didact font-light py-1 pl-2">Discord</p>
+					<p class="font-didact font-light py-1 pl-2">Dribbble</p>
+					<p class="font-didact font-light py-1 pl-2">Youtube</p>
+				</div>
+			</div>
 		</div>
 	</div>
 	
-
+	<div class="w-full">
+		<div class="md:container flex justify-between mx-auto py-4">
+			<div class="sosmed-footer">
+				<a href="#" class="pr-3"><i class="pli-instagram text-4xl text-black hover:text-gray-500 transition duration-200"></i></a>
+				<a href="#" class="pr-3"><i class="pli-twitter text-4xl  text-black hover:text-gray-500 transition duration-200"></i></a>
+				<a href="#" class="pr-3"><i class="pli-youtube text-4xl  text-black hover:text-gray-500 transition duration-200"></i></a>
+				<a href="#" class="pr-3"><i class="pli-dribbble text-4xl  text-black hover:text-gray-500 transition duration-200"></i></a>
+				<a href="#" class="pr-3"><i class="pli-facebook text-4xl  text-black hover:text-gray-500 transition duration-200"></i></a>
+			</div>
+			<div class="since-footer">
+				<span class="font-spartan text-gray-500 font-light">Copyright @ 2020. All Rights Served</span>
+			</div>
+		</div>
+	</div>
 
 
 	@include('site.layouts.script')
