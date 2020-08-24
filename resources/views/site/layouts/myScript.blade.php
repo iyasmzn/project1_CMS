@@ -36,6 +36,7 @@
             margin:20,
             autoWidth: true,
             nav:false,
+            dots:false,
             autoplay:true,
             autoplayTimeout:3000,
         });

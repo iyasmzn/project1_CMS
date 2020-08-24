@@ -207,9 +207,11 @@
 	</div>
 
 	<div class="bg-gray-200 py-16">
-		<div class="sm:container mx-auto">
+		<div class="xl:px-32 md:px-12 sm:px-2 mx-auto">
 			<h1 class="mb-8 text-3xl font-bold">Most Popular Articles</h1>
 			<div id="popular-carousel" class="owl-carousel owl-theme">
+
+				<?php for ($i=0; $i < 12; $i++) { ?>
 				<div class="popular-card bg-white border-2 border-gray-300 relative font-bold" style="width: 300px;overflow: hidden;border-radius: 7px;">
 					<div class="popular-image w-full bg-black" style="height: 200px;background-image: url('https://images3.alphacoders.com/206/thumb-1920-206999.jpg');"></div>
 					<div class="p-4">
@@ -221,14 +223,31 @@
 					</div>
 					<div class="read-button-popular absolute p-4 px-8 bg-black bg-opacity-50 text-white border-2 border-transparent transition duration-500 rounded font-bold" style="top: 50%;left: 50%;transform: translate(-50%,-150%);text-align: center;opacity: 0;"><a href="#">READ</a></div>
 				</div>
-				<div class="popular-card bg-white border-2 border-gray-300 relative" style="width: 300px;overflow: hidden;border-radius: 7px;">
-					<div class="popular-image w-full bg-black" style="height: 200px;background-image: url('https://images3.alphacoders.com/206/thumb-1920-206999.jpg');"></div>
-					<div class="p-4">
-						<h2 class="text-gray-500">Author</h2>
-						<h1>Lorem iaaaaaaaaaaaaaaaaaaaapsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</h1>
-					</div>
-				</div>
+				<?php } ?>
+				
 			</div>	
+		</div>
+	</div>
+
+	<div class="pt-16 bg-white">
+		<div class="sm:container mx-auto">
+			<h1 class="mb-8 text-3xl font-bold">Latest Articles</h1>
+			<div class="grid grid-cols-3 gap-3 my-4">
+				@foreach($articles as $article)
+					<div class="text-center bg-gray-200">{{ $article->title }}</div>
+				@endforeach
+			</div>
+		</div>
+		<div class="w-full mt-8 bg-gray-200">
+			<div class="sm:container mx-auto py-4">
+				{{ $articles->links() }}								
+			</div>
+		</div>
+	</div>
+
+	<div class="py-16 bg-white">
+		<div class="md:container mx-auto">
+			<div class=""></div>
 		</div>
 	</div>
 	
