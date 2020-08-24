@@ -5,22 +5,11 @@
 		@csrf
 	    <div class="panel-body">
 	        <div class="form-group">
-	            <label class="col-sm-1 control-label text-left" for="demo-hor-inputemail">Creator</label>
+	            <label class="col-sm-1 control-label text-left" for="hor-inputecreat">Creator</label>
 	            <div class="col-sm-5">
 
-	            	<select id="demo-select2" class="demo_select2 form-control" name="user_id">
-
-						@foreach($users as $user)
-							@if($user->id == Auth::user()->id)
-								<option value="{{ $user->id }}" selected>{{ $user->name }}</option>
-
-							@else
-
-								<option value="{{ $user->id }}">{{ $user->name }}</option>
-
-							@endif
-						@endforeach
-
+					<select id="demo-select2" class="demo_select2 form-control" name="user_id" >
+						<option value="{{ Auth::user()->id }}">{{ Auth::user()->name }}</option>
 	            	</select>
 
 	            </div>
@@ -68,10 +57,14 @@
 	    	    </div>
 	    	</div>
 	        <div class="form-group">
-	            <label class="col-sm-1 control-label text-left" for="hor-slug">Slug</label>
+	            <label class="col-sm-1 control-label text-left" for="hor-tags">Tags</label>
 	            <div class="col-sm-5">
 
-	                <input type="text" placeholder="" id="hor-slug" class="form-control" name="slug">
+	                <select id="hor-tags" class="form-control" name="slug">
+
+	                	<option></option>
+
+	                </select>
 
 	            </div>
 	        </div>

@@ -7,6 +7,7 @@ use App\Model\Category;
 use App\Model\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -31,6 +32,10 @@ class ArticleController extends Controller
         if ($request->image_file) {
             $request = $this->uploadImage($request);
         }
+        $slug = Str::of($request['title'])->slug('-');
+        $request->merge([
+            'slug' => $slug,
+        ]);
         $this->model->create($request->all());
         return redirect(route('admin.articles.index'));
     }

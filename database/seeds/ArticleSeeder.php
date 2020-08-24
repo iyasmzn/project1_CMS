@@ -5,6 +5,7 @@ use App\Model\Category;
 use App\Model\User;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class ArticleSeeder extends Seeder
 {
@@ -20,12 +21,13 @@ class ArticleSeeder extends Seeder
         $users_count      = User::count();
         $categories_count = Category::count();
         for ($i = 0; $i < 100; $i++) {
+            $title = $f->realText($maxNbChars = 20, $indexSize = 2);
             Article::create([
                 'user_id'     => ($i % $users_count) + 1,
                 'category_id' => rand(1, $categories_count),
-                'title'       => $f->realText($maxNbChars = 20, $indexSize = 2),
+                'title'       => $title,
                 'content'     => $f->realText(),
-                'slug'        => $f->slug(),
+                'slug'        => Str::of($title)->slug('-'),
             ]);
         }
     }

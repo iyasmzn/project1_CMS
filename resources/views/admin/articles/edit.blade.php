@@ -3,6 +3,7 @@
 @section('content')
 	<form class="form-horizontal" method="post" action="/admin/articles/update/{{ $article->id }}" enctype="multipart/form-data">
 		@csrf
+		@method('PUT')
 	    <div class="panel-body">
 	        <div class="form-group">
 	            <label class="col-sm-1 control-label text-left" for="demo-hor-inputemail">Creator</label>

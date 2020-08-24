@@ -60,7 +60,7 @@
                     <td>{{ $article->user->name }}</td>
                     <td>{{ $article->category->name }}</td>
                     <td>{{ $article->title }}</td>
-                    <td class="text-overflow">{{ $article->content }}</td>
+                    <td class="text-overflow">{!! Str::words($article->content, 125, ' ...') !!}</td>
                     <td>
                         <img src="/img/{{ $article->image }}" style="width: 50px;">    
                     </td>

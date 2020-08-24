@@ -24,7 +24,9 @@
     <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script> -->
 
     <!--Select2 [ OPTIONAL ]-->
-    <script src="{{ asset('nifty/demo/plugins/select2/js/select2.min.js') }}"></script>
+    <!-- <script src="{{ asset('nifty/demo/plugins/select2/js/select2.min.js') }}"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    
 
     <!--Demo script [ DEMONSTRATION ]-->
     <!-- <script src="{{asset('nifty/demo/js/demo/nifty-demo.min.js')}}"></script> -->

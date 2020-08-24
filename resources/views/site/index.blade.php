@@ -150,11 +150,11 @@
 
 				@foreach($articles as $article)
 					<div class="latest-article-card mb-4 mt-1" data-aos="zoom-in" data-aos-delay="{{ $article->id*100 }}">
-						<div class="latest-article-card-image rounded-lg bg-gray-200" style="background-image: url('https://images.alphacoders.com/109/thumb-1920-1097505.png');background-size: cover;background-position: center;"></div>
+						<div class="latest-article-card-image rounded-lg bg-gray-200" style="background-image: url('/img/{{ $article->image }}');background-size: cover;background-position: center;"></div>
 						<div class="font-bold p-4">
-							<p class="text-sm py-1 text-gray-500 font-poppins"><a href="#">Creator</a> | Date</p>
-							<h1 class="latest-article-card-title py-2 font-spartan">{{ $article->title }}</h1>
-							<p class="font-light text-sm font-didact" style="text-indent: 20px;">{{ short_char($article->content, 90) }}</p>
+							<p class="text-sm py-1 text-gray-500 font-poppins"><a href="#">{{$article->user->name}}</a> | {{$article->created_at}}</p>
+							<h1 class="latest-article-card-title py-2 font-spartan"><a href="{{ route('articleSite', ['id' => $article->id]) }}">{{ $article->title }}</a></h1>
+							<p class="font-light text-sm font-didact" style="text-indent: 20px;">{{ Str::words($article->content, 15, ' ...') }}</p>
 						</div>
 					</div>
 				@endforeach

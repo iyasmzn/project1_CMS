@@ -23,7 +23,8 @@
 
 
 <!--Select2 [ OPTIONAL ]-->
-<link href="{{ asset('nifty/demo/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
+<!-- <link href="{{ asset('nifty/demo/plugins/select2/css/select2.min.css') }}" rel="stylesheet"> -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 
 <!--Demo [ DEMONSTRATION ]-->
 <link href="{{asset('nifty/demo/css/demo/nifty-demo.min.css')}}" rel="stylesheet">

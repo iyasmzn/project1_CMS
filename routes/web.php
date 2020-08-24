@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
  */
 Route::namespace ('Site')->group(function () {
     Route::get('/', 'HomeController@showData')->name('homeSite');
-    Route::get('/article-site', 'HomeController@showArticle')->name('articleSite');
+    Route::get('/article-site/{id}', 'HomeController@showArticle')->name('articleSite');
 });
 Route::get('/home', function () {
     return view('admin.index');
@@ -40,7 +40,7 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
         Route::get('/create', 'CategoryController@create')->name('create');
         Route::post('/store', 'CategoryController@store')->name('store');
         Route::get('/edit/{id}', 'CategoryController@edit')->name('edit');
-        Route::post('/update/{id}', 'CategoryController@update')->name('update');
+        Route::put('/update/{id}', 'CategoryController@update')->name('update');
         Route::delete('/delete/{id}', 'CategoryController@delete')->name('delete');
     });
     Route::prefix('/articles')->name('articles.')->group(function () {
@@ -49,7 +49,7 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
         Route::get('/edit/{id}', 'ArticleController@create')->name('edit');
         Route::post('/store', 'ArticleController@store')->name('store');
         Route::get('/edit/{id}', 'ArticleController@edit')->name('edit');
-        Route::post('/update/{id}', 'ArticleController@update')->name('update');
+        Route::put('/update/{id}', 'ArticleController@update')->name('update');
         Route::delete('/delete/{id}', 'ArticleController@delete')->name('delete');
     });
 }
