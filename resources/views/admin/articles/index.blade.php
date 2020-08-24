@@ -61,7 +61,9 @@
                     <td>{{ $article->category->name }}</td>
                     <td>{{ $article->title }}</td>
                     <td class="text-overflow">{{ $article->content }}</td>
-                    <td>{{ $article->image }}</td>
+                    <td>
+                        <img src="/img/{{ $article->image }}" style="width: 50px;">    
+                    </td>
                     <td>{{ $article->slug }}</td>
                     <td>
                         <a href="/admin/articles/edit/{{ $article->id }}"><i class="pli-recycling-2 action-hover-edit"></i></a>

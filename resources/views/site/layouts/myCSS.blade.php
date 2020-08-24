@@ -118,9 +118,23 @@
 		color: tomato;
 		cursor: pointer;	
 	}
+	#nav {
+		background-color: rgba(0,0,0,0.7);
+		transition: all 0.3s;
+	}
+	#nav:hover {
+		background-color: rgba(0,0,0,1);
+	}
 	.search-page {
-		z-index: 200;transform: translateX(350px);
-		right: 0;
-		transition: all 0.5s;
+		z-index: 200;transform: translateX(500px);
+		right: 0;top: 0;
+		transition: all 0.2s;
+	}
+	.psi-speech-bubble-comic-2:hover {
+		cursor: pointer;
+	}
+	.search-full-page {
+		transition: all 0.4s;
+		width: 0px;
 	}
 </style>

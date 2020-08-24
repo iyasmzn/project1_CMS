@@ -14,7 +14,7 @@
 	    <div class="header-image w-full mx-auto h-screen">
 	    	<div class="h-screen" style="">
 	    		<div class="header-image-hover h-screen w-full relative" style="z-index: -10;background-image: url('https://images3.alphacoders.com/819/thumb-1920-81925.jpg');background-size: cover;background-position: center;"></div>
-		    	<div class="header-info w-1/2 bg-black bg-opacity-50 relative bottom-0 text-white p-8">
+		    	<div class="header-info w-1/2 bg-black bg-opacity-50 relative bottom-0 text-white p-8" data-aos="fade-up">
 
 		    		<h1 class="text-4xl my-5 mt-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		    		tempor incididunt ut labore et dolore magna aliqua</h1> 
@@ -106,11 +106,11 @@
 
 	<div class="bg-gray-200 py-16">
 		<div class="xl:px-32 md:px-12 sm:px-2 mx-auto">
-			<h1 class="mb-8 text-3xl font-bold font-spartan">Most Popular Articles</h1>
+			<h1 class="mb-8 text-3xl font-bold font-spartan" data-aos="fade-up">Most Popular Articles</h1>
 			<div id="popular-carousel" class="owl-carousel owl-theme">
 
-				<?php for ($i=0; $i < 12; $i++) { ?>
-				<div class="popular-card bg-white border-2 border-gray-300 relative font-bold" style="width: 300px;overflow: hidden;border-radius: 7px;">
+				<?php for ($i=1; $i <= 12; $i++) { ?>
+				<div class="popular-card bg-white border-2 border-gray-300 relative font-bold" style="width: 300px;overflow: hidden;border-radius: 7px;" data-aos="fade-up">
 					<div class="popular-image w-full bg-black" style="height: 200px;background-image: url('https://images3.alphacoders.com/206/thumb-1920-206999.jpg');filter: brightness(50%);transition: all 0.5s;"></div>
 					<div class="p-4">
 						<h2 class="text-gray-500 font-spartan">Author</h2>
@@ -130,9 +130,9 @@
 	<div class="pt-16 bg-white">
 		<div class="sm:container mx-auto">
 			<div class="flex justify-between">
-				<div><h1 class="mb-8 text-3xl font-bold font-spartan">Latest Articles</h1></div>				
+				<div><h1 class="mb-8 text-3xl font-bold font-spartan" data-aos="fade-up">Latest Articles</h1></div>				
 				<div>
-					<div class="bg-red-500 px-4 border-2 border-red-500" style="border-radius: 50px;box-shadow: 2px 2px 12px gray;">
+					<div class="bg-red-500 px-4 border-2 border-red-500" style="border-radius: 50px;box-shadow: 2px 2px 12px gray;" data-aos="fade-left" data-aos-delay="200">
 						<span class="font-poppins text-white">CATEGORY</span>
 						<i class="psi-arrow-right text-xl text-white"></i>
 						<select class="bg-white p-2 font-bold text-gray-500 font-didact">
@@ -149,7 +149,7 @@
 			<div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 my-4">
 
 				@foreach($articles as $article)
-					<div class="latest-article-card mb-4 mt-1">
+					<div class="latest-article-card mb-4 mt-1" data-aos="zoom-in" data-aos-delay="{{ $article->id*100 }}">
 						<div class="latest-article-card-image rounded-lg bg-gray-200" style="background-image: url('https://images.alphacoders.com/109/thumb-1920-1097505.png');background-size: cover;background-position: center;"></div>
 						<div class="font-bold p-4">
 							<p class="text-sm py-1 text-gray-500 font-poppins"><a href="#">Creator</a> | Date</p>

@@ -30,7 +30,7 @@
 		<div class="md:container mx-auto bg-white rounded-lg p-4 px-8 mt-12">
 			<div class="flex justify-between" style="transform: translateY(-37px);">
 				<span class="font-spartan text-3xl">Comments</span>
-				<span class="font-spartan text-3xl"><a href="#" class="bg-red-500 text-white p-1 px-2 rounded"><i class="psi-speech-bubble-13"></i></a></span>
+				<span class="font-spartan text-3xl"><a href="#" class="bg-red-500 text-white p-1 px-2 rounded"><i class="psi-paper-plane"></i></a></span>
 			</div>
 			<div class="grid grid-rows-3 grid-flow-col gap-4">
 			  <div class="row-span-3"></div>

@@ -1,16 +1,6 @@
 <script>
 
-    function searchShow() {
-       $('.search-input').animate({width: '200px'}, 'slow'); 
-    };
-    function searchHide() {
-       $('.search-input').animate({width: '0px'}, 'slow'); 
-    };
-    function showSearchPage() {
-       $('.search-page').css({transform: 'translateX(0px)'}, 'slow');   
-    }
     $(window).ready(function(){
-        AOS.init();
         // $('.search-icon').click(function () {
         //    $('.search-input').animate({width: '200px'}, 'slow'); 
         // });
@@ -42,5 +32,25 @@
             autoplayTimeout:3000,
             autoplayHoverPause:true
         });
+        
+    AOS.init();
+
     });
+
+    function searchShow() {
+       $('.search-input').animate({width: '200px'}, 'slow'); 
+    };
+    function searchHide() {
+       $('.search-input').animate({width: '0px'}, 'slow'); 
+    };
+    function showSearchPage() {
+       $('.search-page').css({transform: 'translateX(0px)'}, 'slow');   
+       $('.psi-speech-bubble-comic-2').css({color: 'tomato'}, 'slow');   
+       $('.search-full-page').css({backgroundColor: 'rgba(0,0,0,0.5)', width: '100%'}, 'slow');   
+    }
+    function hiddenSearchPage() {
+       $('.search-page').css({transform: 'translateX(500px)'}, 'slow');   
+       $('.psi-speech-bubble-comic-2').css({color: 'white'}, 'slow');   
+       $('.search-full-page').css({backgroundColor: 'rgba(0,0,0,0)', width: '0px'}, 'slow');   
+    }    
 </script>
