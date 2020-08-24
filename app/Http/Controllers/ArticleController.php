@@ -17,8 +17,7 @@ class ArticleController extends Controller
     }
     public function index()
     {
-        $id       = auth()->user()->id;
-        $articles = $this->model->find($id)->get();
+        $articles = $this->model->get();
         return view('admin.articles.index', compact('articles'));
     }
     public function create()
