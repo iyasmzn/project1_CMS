@@ -79,6 +79,18 @@
 			transform: translateY(10px);
 			cursor: pointer;
 		}
+		.popular-card:hover .read-button-popular {
+			opacity: 1!important;
+		}
+		.popular-card:hover .popular-tag-card {
+			background-color: green!important;
+		}
+		.popular-card:hover .popular-card-title {
+			color: blue;
+		}
+		.read-button-popular:hover {
+			background-color: tomato;
+		}
 	</style>
 </head>
 <body>
@@ -198,13 +210,16 @@
 		<div class="sm:container mx-auto">
 			<h1 class="mb-8 text-3xl font-bold">Most Popular Articles</h1>
 			<div id="popular-carousel" class="owl-carousel owl-theme">
-				<div class="popular-card bg-white border-2 border-gray-300 relative" style="width: 300px;overflow: hidden;border-radius: 7px;">
+				<div class="popular-card bg-white border-2 border-gray-300 relative font-bold" style="width: 300px;overflow: hidden;border-radius: 7px;">
 					<div class="popular-image w-full bg-black" style="height: 200px;background-image: url('https://images3.alphacoders.com/206/thumb-1920-206999.jpg');"></div>
 					<div class="p-4">
 						<h2 class="text-gray-500">Author</h2>
-						<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</h1>
+						<h1 class="popular-card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</h1>
 					</div>
-					<div class="absolute p-1 bg-red-400 hover:bg-opacity-50 text-white border-2 border-red-400 transition duration-500 w-full" style="top: 5px;left: 50%;transform: translateX(-50%);text-align: center;"><a href="#">Read</a></div>
+					<div class="popular-tag-card absolute top-0 left-0 m-2 ml-4 p-1 px-3 text-white font-bold" style="border-radius: 20px;background-color: rgba(0,0,0,0.1);transition: all 0.5s;">
+						Article
+					</div>
+					<div class="read-button-popular absolute p-4 px-8 bg-black bg-opacity-50 text-white border-2 border-transparent transition duration-500 rounded font-bold" style="top: 50%;left: 50%;transform: translate(-50%,-150%);text-align: center;opacity: 0;"><a href="#">READ</a></div>
 				</div>
 				<div class="popular-card bg-white border-2 border-gray-300 relative" style="width: 300px;overflow: hidden;border-radius: 7px;">
 					<div class="popular-image w-full bg-black" style="height: 200px;background-image: url('https://images3.alphacoders.com/206/thumb-1920-206999.jpg');"></div>

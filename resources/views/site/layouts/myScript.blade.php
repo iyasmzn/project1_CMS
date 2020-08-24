@@ -33,9 +33,9 @@
         });
         $('#popular-carousel').owlCarousel({
             loop:true,
-            margin:10,
+            margin:20,
             autoWidth: true,
-            nav:true,
+            nav:false,
             autoplay:true,
             autoplayTimeout:3000,
         });
