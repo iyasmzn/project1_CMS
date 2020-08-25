@@ -49,6 +49,12 @@
 				@endforeach
 
 			</div>
+
+
+			<div class="mt-32">
+				<a href="/admin" class="px-4 p-2 bg-red-900 text-white hover:bg-red-400 transition duration-200">Login Admin</a>
+			</div>
+
 			<div class="w-full pt-1 bg-white my-4"></div>
 		</div>
 	</div>
