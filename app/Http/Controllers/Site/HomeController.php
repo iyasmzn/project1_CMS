@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use App\Model\Article;
+use App\Model\Comment;
 
 // use Illuminate\Http\Request;
 
@@ -29,7 +30,8 @@ class HomeController extends Controller
         $article = Article::where('slug', '=', $slug)->first();
         // $article = Article::find(); 
         $articles   = Article::paginate(8);
+        $comments   = Comment::where('article_id', '=', $article->id)->latest()->paginate(5);
         $categories   = DB::table('categories')->get();
-        return view('site.showArticle', compact('categories', 'article','articles'));
+        return view('site.showArticle', compact('categories', 'article','articles', 'comments'));
     }
 }

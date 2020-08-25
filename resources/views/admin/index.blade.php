@@ -3,7 +3,6 @@
 @section('content')
 
 	  <div class="row">
-	  	<div class="col-md-1"></div>
 	    <div class="col-md-3">
 	        <div class="panel panel-success panel-colorful media middle pad-all">
 	            <div class="media-left">
@@ -40,6 +39,19 @@
 	            <div class="media-body">
 	                <p class="text-2x mar-no text-semibold">{{ $articles->count() }}</p>
 	                <p class="mar-no">Article</p>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="col-md-3">
+	        <div class="panel panel-danger panel-colorful media middle pad-all">
+	            <div class="media-left">
+	                <div class="pad-hor">
+	                    <i class="pli-tag icon-3x"></i>
+	                </div>
+	            </div>
+	            <div class="media-body">
+	                <p class="text-2x mar-no text-semibold">{{ $tags->count() }}</p>
+	                <p class="mar-no">Tag</p>
 	            </div>
 	        </div>
 	    </div>

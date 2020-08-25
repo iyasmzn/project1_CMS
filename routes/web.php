@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::namespace ('Site')->group(function () {
     Route::get('/', 'HomeController@showData')->name('homeSite');
     Route::get('/article-site/{slug}', 'HomeController@showArticle')->name('articleSite');
+    Route::post('/comment/{id}', 'CommentController@addComment')->name('comment');
 });
 Route::get('/home', function () {
     return view('admin.index');

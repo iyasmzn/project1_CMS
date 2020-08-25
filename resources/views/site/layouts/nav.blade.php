@@ -6,7 +6,7 @@
 			</div>
 		</div>
 		<div id="nav-menu" class="p-4 md:flex flex-row justify-between font-bold items-center relative z-100">
-			<a href="#" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-white transition duration-500">HOME</a>
+			<a href="{{ route('homeSite') }}" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-white transition duration-500">HOME</a>
 			<a href="#" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-white transition duration-500">BLOG</a>
 			<a href="#" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-white transition duration-500">NEWS</a>
 			<a href="#" class="mx-4 text-lg border-b-2 border-transparent hover:border-b-2 hover:border-white transition duration-500">CONTACT US</a>
