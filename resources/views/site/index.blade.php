@@ -109,19 +109,22 @@
 			<h1 class="mb-8 text-3xl font-bold font-spartan" data-aos="fade-up">Most Popular Articles</h1>
 			<div id="popular-carousel" class="owl-carousel owl-theme">
 
-				<?php for ($i=1; $i <= 12; $i++) { ?>
+				@foreach($popular as $article)
 				<div class="popular-card bg-white border-2 border-gray-300 relative font-bold" style="width: 300px;overflow: hidden;border-radius: 7px;" data-aos="fade-up">
 					<div class="popular-image w-full bg-black" style="height: 200px;background-image: url('https://images3.alphacoders.com/206/thumb-1920-206999.jpg');filter: brightness(50%);transition: all 0.5s;"></div>
 					<div class="p-4">
-						<h2 class="text-gray-500 font-spartan">Author</h2>
-						<h1 class="popular-card-title font-poppins">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</h1>
+						<h2 class="text-gray-500 font-spartan">{{$article->user->name}}</h2>
+						<h1 class="popular-card-title font-poppins">{{ $article->title }}</h1>
 					</div>
 					<div class="popular-tag-card absolute top-0 left-0 m-2 ml-4 p-1 px-3 text-white font-bold" style="border-radius: 20px;background-color: rgba(0,0,0,0.1);transition: all 0.5s;">
-						CATEGORY
+						{{$article->category->name}}
 					</div>
-					<div class="read-button-popular absolute p-4 px-8 bg-black bg-opacity-50 text-white border-2 border-transparent transition duration-500 rounded font-bold" style="top: 50%;left: 50%;transform: translate(-50%,-150%);text-align: center;opacity: 0;"><a href="#">READ</a></div>
+					<div class="popular-tag-card-count absolute top-0 right-0 m-2 ml-4 p-1 px-3 text-white font-bold" style="border-radius: 20px;background-color: rgba(0,0,0,0.1);transition: all 0.5s;">
+						{{$article->counter}} Views
+					</div>
+					<div class="read-button-popular absolute bg-black bg-opacity-50 text-white border-2 border-transparent transition duration-500 rounded font-bold" style="top: 50%;left: 50%;transform: translate(-50%,-50%);text-align: center;opacity: 0;"><a href="/article-site/{{ $article->slug }}" class="p-4 px-8" style="display: block;">READ</a></div>
 				</div>
-				<?php } ?>
+				@endforeach
 				
 			</div>	
 		</div>
@@ -154,7 +157,8 @@
 						<div class="font-bold p-4">
 							<p class="text-sm py-1 text-gray-500 font-poppins"><a href="#">{{$article->user->name}}</a> | {{$article->created_at}}</p>
 							<h1 class="latest-article-card-title py-2 font-spartan"><a href="/article-site/{{ $article->slug }}">{{ $article->title }}</a></h1>
-							<p class="font-light text-sm font-didact" style="text-indent: 20px;">{{ Str::words($article->content, 15, ' ...') }}</p>
+							<p class="font-light text-sm font-didact" style="text-indent: 20px;width: 100%;">{{ Str::words($article->content, 15, ' ...') }}</p>
+							<!-- <p class="font-light text-sm font-didact" style="text-indent: 20px;width: 100%;">{{ $article->content }}</p> -->
 						</div>
 					</div>
 				@endforeach

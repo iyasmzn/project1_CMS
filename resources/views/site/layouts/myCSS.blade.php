@@ -93,7 +93,10 @@
 		opacity: 1!important;
 	}
 	.popular-card:hover .popular-tag-card {
-		background-color: green!important;
+		background-color: navy!important;
+	}
+	.popular-card:hover .popular-tag-card-count {
+		background-color: black!important;
 	}
 	.popular-card:hover .popular-card-title {
 		color: tomato;

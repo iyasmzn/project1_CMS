@@ -22,6 +22,8 @@
 				<span class="pl-2"><a href="">{{$article->user->name}}</a></span>
 				<i class="psi-record-3 px-2" style="font-size: 10px;transform: translateY(-2.5px);"></i>
 				<span class="pl-2">{{ Str::words($article->created_at, 1, '') }}</span>
+				<i class="psi-record-3 px-2" style="font-size: 10px;transform: translateY(-2.5px);"></i>
+				<span class="pl-2">{{ $article->counter }}</span>
 			</div>
 			<p class="text-xl mb-4" style="text-indent: 50px;">
 				{!! $article->content !!}

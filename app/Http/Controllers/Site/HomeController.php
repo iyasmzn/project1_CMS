@@ -20,17 +20,19 @@ class HomeController extends Controller
     {
         // $articles   = DB::table('articles')->paginate(12);
         $articles = Article::latest()->paginate(12);
+        $popular = Article::orderBy('counter', 'desc')->take(10)->get();
         $categories   = DB::table('categories')->get();
-        return view('site.index', compact('categories', 'articles'));
+        return view('site.index', compact('categories', 'articles', 'popular'));
     }
     public function showArticle($slug)
     {
         // $articles   = DB::table('articles')->find($id);
-        // $articless = Article::paginate(8);
+        // $articless = Article::paginate(8);        
         $article = Article::where('slug', '=', $slug)->first();
+        $article->increment('counter');
         // $article = Article::find(); 
         $articles   = Article::paginate(8);
-        $comments   = Comment::where('article_id', '=', $article->id)->latest()->paginate(5);
+        $comments   = Comment::where('article_id', $article->id)->latest()->paginate(5);
         $categories   = DB::table('categories')->get();
         return view('site.showArticle', compact('categories', 'article','articles', 'comments'));
     }
