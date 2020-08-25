@@ -4,9 +4,9 @@
         // $('.search-icon').click(function () {
         //    $('.search-input').animate({width: '200px'}, 'slow'); 
         // });
-        function searchShow() {
-           $('.search-input').animate({width: '200px'}, 'slow'); 
-        }
+        // function searchShow() {
+        //    $('.search-input').animate({width: '200px'}, 'slow'); 
+        // }
         $('#header-carousel').owlCarousel({
             animateOut: 'fadeOut',
             animateIn: 'fadeIn',
@@ -36,7 +36,14 @@
     AOS.init();
 
     });
-
+    function showCommentForm() {
+       $('.comments-form').css({height: 'auto', opacity: 1}, 'slow');   
+       $('.paper-plane-icon').css({opacity: 0}, 'slow');   
+    }
+    function hiddenCommentForm() {
+       $('.comments-form').css({height: '0', opacity: 0}, 'slow');   
+       $('.paper-plane-icon').css({opacity: 1}, 'slow');   
+    }
     function searchShow() {
        $('.search-input').animate({width: '200px'}, 'slow'); 
     };

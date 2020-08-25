@@ -137,4 +137,21 @@
 		transition: all 0.4s;
 		width: 0px;
 	}
+	.paper-plane-icon:hover {
+		cursor: pointer;
+	}
+	.comments-form {
+		position: relative;
+		z-index: 20;
+		box-shadow: 0px 5px 10px gray;
+		height: 0;
+		opacity: 0;
+		transition: all 1s;
+	}
+	.article-comments {
+		transform: translateY(-120px);
+	}
+	.comment-dismiss:hover {
+		cursor: pointer;
+	}
 </style>

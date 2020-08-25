@@ -30,29 +30,31 @@
 		<div class="md:container mx-auto bg-white rounded-lg p-2 px-8 mt-16" style="height: 5px;">
 			<div class="flex justify-between" style="transform: translateY(-27px);">
 				<span class="font-spartan text-3xl">Comments</span>
-				<span class="font-spartan text-5xl" style="transform: translateY(-30px);"><a class="paper-plane-icon bg-red-500 border-2 border-red-500 text-white hover:text-red-500 hover:bg-red-100 p-1 px-2 transition duration-300" style="border-radius: 100px;"><i class="psi-paper-plane"></i></a></span>
+				<span class="font-spartan text-5xl" style="transform: translateY(-30px);"><a onclick="showCommentForm();" class="paper-plane-icon bg-red-500 border-2 border-red-500 text-white hover:text-red-500 hover:bg-red-100 p-1 px-2 transition duration-300" style="border-radius: 100px;"><i class="psi-paper-plane"></i></a></span>
 			</div>
 		</div>
 		<div class="md:container mx-auto">
 			
 			<div class="comments-form w-1/2 mx-auto bg-white rounded-lg p-4 px-8 mt-12">
-				<form class="w-full" action="/comment/{{ $article->id }}" method="post">
+				<h1 class="font-poppins text-gray-500">Comment Form</h1>
+				<form class="w-full pt-4" action="/comment/{{ $article->id }}" method="post">
 					@csrf
-					<table class="font-spartan text-gray-500 w-full">
+					<table class="font-spartan text-gray-700 w-full">
 						<tr class="border-b-2 border-gray-300">
 							<td width="100"><label for="nameee" class="w-full pr-2">ur Name :</label></td>
 							<td>
-								<input id="nameee" type="text" name="name" class="w-full">
+								<input id="nameee" type="text" name="name" class="w-full px-2 p-1">
 							</td>
 						</tr>
 						<tr>
 							<td colspan="2">
-								<textarea class="w-full border-b-2" name="body"></textarea>
+								<textarea class="w-full border-b-2 p-4" name="body" placeholder="ur commentar here..."></textarea>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="2" class="text-center">
-								<button class="bg-red-100 text-red-500 border-2 border-red-500 hover:text-white hover:bg-red-500 px-2 p-1 rounded-md font-poppins transition duration-300"><i class="psi-paper-plane text-5xl"></i></button>
+								<button onclick="hiddenCommentForm()" class="paper-plane-send bg-blue-100 text-blue-500 border-2 border-blue-500 hover:text-white hover:bg-blue-500 px-2 p-1 rounded-md font-poppins transition duration-300"><i class="psi-paper-plane text-5xl"></i></button>
+								<p onclick="hiddenCommentForm()"  class="comment-dismiss psi-cross bg-red-500 text-red-100 border-2 border-red-100 hover:text-red-500 hover:bg-red-100 px-2 p-1 rounded-md font-poppins transition duration-300"></p>
 							</td>
 						</tr>
 					</table>
@@ -60,7 +62,7 @@
 			</div>
 
 		</div>
-		<div class="md:container mx-auto bg-white rounded-lg p-2 px-8 mt-16">
+		<div class="article-comments md:container mx-auto bg-white rounded-lg p-2 px-8 mt-16">
 			@php $no=1;  @endphp
 				<div>
 					<table class="w-full font-spartan">
