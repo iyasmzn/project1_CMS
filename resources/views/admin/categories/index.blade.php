@@ -30,7 +30,7 @@
     @php
         $no = 1;
     @endphp
-    <a href="{{ route('admin.categories.create') }}">Add Data</a>
+    <a class="btn btn-md btn-primary" href="{{ route('admin.categories.create') }}">Add Data</a>
 
     <div class="panel-body">
         <table id="data-table" class="table table-striped table-bordered" cellspacing="0" width="100%">

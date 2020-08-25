@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -14,6 +15,7 @@ class UserController extends Controller
     }
     public function index()
     {
+        // $this->authorize('viewAny', $this->model);
         $users = $this->model->all();
         return view('admin.users.index', compact('users'));
     }
