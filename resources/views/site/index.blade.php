@@ -153,7 +153,7 @@
 						<div class="latest-article-card-image rounded-lg bg-gray-200" style="background-image: url('/img/{{ $article->image }}');background-size: cover;background-position: center;"></div>
 						<div class="font-bold p-4">
 							<p class="text-sm py-1 text-gray-500 font-poppins"><a href="#">{{$article->user->name}}</a> | {{$article->created_at}}</p>
-							<h1 class="latest-article-card-title py-2 font-spartan"><a href="{{ route('articleSite', ['id' => $article->id]) }}">{{ $article->title }}</a></h1>
+							<h1 class="latest-article-card-title py-2 font-spartan"><a href="/article-site/{{ $article->slug }}">{{ $article->title }}</a></h1>
 							<p class="font-light text-sm font-didact" style="text-indent: 20px;">{{ Str::words($article->content, 15, ' ...') }}</p>
 						</div>
 					</div>

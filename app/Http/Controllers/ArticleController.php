@@ -54,6 +54,10 @@ class ArticleController extends Controller
             $this->removeImage($model->image);
             $request = $this->uploadImage($request);
         }
+        $slug = Str::of($request['title'])->slug('-');
+        $request->merge([
+            'slug' => $slug,
+        ]);
         $model->update($request->all());
         return redirect(route('admin.articles.index'));
     }

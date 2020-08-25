@@ -28,6 +28,7 @@ class ArticleSeeder extends Seeder
                 'title'       => $title,
                 'content'     => $f->realText(),
                 'slug'        => Str::of($title)->slug('-'),
+                'image'       => $f->image($dir = '/img', $width = 640, $height = 480),
             ]);
         }
     }

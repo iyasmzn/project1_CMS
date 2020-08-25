@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
  */
 Route::namespace ('Site')->group(function () {
     Route::get('/', 'HomeController@showData')->name('homeSite');
-    Route::get('/article-site/{id}', 'HomeController@showArticle')->name('articleSite');
+    Route::get('/article-site/{slug}', 'HomeController@showArticle')->name('articleSite');
 });
 Route::get('/home', function () {
     return view('admin.index');
