@@ -21,8 +21,9 @@ class HomeController extends Controller
         // $articles   = DB::table('articles')->paginate(12);
         $articles = Article::latest()->paginate(12);
         $popular = Article::orderBy('counter', 'desc')->take(10)->get();
+        $mostPopular = Article::orderBy('counter', 'desc')->take(5)->get();
         $categories   = DB::table('categories')->get();
-        return view('site.index', compact('categories', 'articles', 'popular'));
+        return view('site.index', compact('categories', 'articles', 'popular', 'mostPopular'));
     }
     public function showArticle($slug)
     {

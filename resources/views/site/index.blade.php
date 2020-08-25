@@ -11,96 +11,37 @@
 
 	<div id="header-carousel" class="owl-carousel owl-theme text-white w-full h-screen relative">
 
+		@foreach($mostPopular as $article)
 	    <div class="header-image w-full mx-auto h-screen">
 	    	<div class="h-screen" style="">
-	    		<div class="header-image-hover h-screen w-full relative" style="z-index: -10;background-image: url('https://images3.alphacoders.com/819/thumb-1920-81925.jpg');background-size: cover;background-position: center;"></div>
-		    	<div class="header-info w-1/2 bg-black bg-opacity-50 relative bottom-0 text-white p-8" data-aos="fade-up">
+	    		<div class="header-image-hover h-screen w-full relative" style="z-index: -10;background-image: url('/img/{{ $article->image }}');background-size: cover;background-position: center;"></div>
+		    	<div class="header-info xl:w-1/2 md:w-3/4 sm:w-full bg-black bg-opacity-50 relative bottom-0 text-white p-8" data-aos="fade-up">
 
-		    		<h1 class="text-4xl my-5 mt-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		    		tempor incididunt ut labore et dolore magna aliqua</h1> 
+		    		<h1 class="text-4xl my-5 mt-12">{{ $article->title }}</h1> 
 		    		
-		    		<p class="mb-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		    		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		    		<p class="mb-8">{!! Str::words($article->content, 20) !!}</p>
 
-			    	<div class="header-info-tag p-2 bg-blue-400 text-white bg-opacity-50 absolute top-0 font-bold">
-			    		MOST READ
+			    	<div class="header-info-tag p-2 bg-red-600 text-white bg-opacity-50 absolute top-0 font-bold">
+			    		TOP VIEW
+			    	</div>
+			    	<div class="header-info-tag p-2 bg-blue-400 text-white bg-opacity-50 absolute top-0 font-bold" style="right: 30px;">
+			    		{{ $article->counter }} <span class="psi-eye-visible text-3xl pl-2"></span>
 			    	</div>
 
 			    	<div class="header-info-date p-2 pl-4 bg-black text-white bg-opacity-50 absolute bottom-0 right-0 font-spartan" style="border-radius: 7px 0 0 0;">
-			    		26 - 04 - 2020
+			    		{{ Str::words($article->created_at, 1, '') }}
 			    	</div>
 
-		    		<a href="#" class="header-read-more p-4 hover:bg-red-400 text-red-400 hover:text-white border-2 border-red-400 font-bold rounded transition duration-500 mt-8 mb-8">
-		    			READ MORE
-		    		</a>
+		    		<div class="w-full text-center pb-12">
+		    			<a href="/article-site/{{ $article->slug }}" class="header-read-more p-4 hover:bg-red-400 text-red-400 hover:text-white border-2 border-red-400 font-bold rounded transition duration-500 mt-8 mb-8">
+			    			READ MORE
+			    		</a>
+		    		</div>
 
 		    	</div>
 	    	</div>
 		</div>
-	    <div class="header-image w-full mx-auto h-screen">
-	    	<div class="h-screen" style="">
-	    		<div class="header-image-hover h-screen w-full relative" style="z-index: -10;background-image: url('https://images6.alphacoders.com/109/thumb-1920-1094480.jpg');background-size: cover;background-position: center;"></div>
-		    	<div class="header-info w-1/2 bg-black bg-opacity-50 relative bottom-0 text-white p-8">
-
-		    		<h1 class="text-4xl my-5 mt-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		    		tempor incididunt ut labore et dolore magna aliqua</h1> 
-		    		
-		    		<p class="mb-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		    		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-			    	<div class="header-info-tag p-2 bg-blue-400 text-white bg-opacity-50 absolute top-0 font-bold">
-			    		MOST READ
-			    	</div>
-
-			    	<div class="header-info-date p-2 pl-4 bg-black text-white bg-opacity-50 absolute bottom-0 right-0 font-spartan" style="border-radius: 7px 0 0 0;">
-			    		26 - 04 - 2020
-			    	</div>
-
-		    		<a href="#" class="header-read-more p-4 hover:bg-red-400 text-red-400 hover:text-white border-2 border-red-400 font-bold rounded transition duration-500 mt-8 mb-8">
-		    			READ MORE
-		    		</a>
-
-		    	</div>
-	    	</div>
-		</div>
-	    <div class="header-image w-full mx-auto h-screen">
-	    	<div class="h-screen" style="">
-	    		<div class="header-image-hover h-screen w-full relative" style="z-index: -10;background-image: url('https://artfiles.alphacoders.com/134/thumb-1920-134317.jpg');background-size: cover;background-position: center;"></div>
-		    	<div class="header-info w-1/2 bg-black bg-opacity-50 relative bottom-0 text-white p-8">
-
-		    		<h1 class="text-4xl my-5 mt-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		    		tempor incididunt ut labore et dolore magna aliqua</h1> 
-		    		
-		    		<p class="mb-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		    		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-			    	<div class="header-info-tag p-2 bg-blue-400 text-white bg-opacity-50 absolute top-0 font-bold">
-			    		MOST READ
-			    	</div>
-
-			    	<div class="header-info-date p-2 pl-4 bg-black text-white bg-opacity-50 absolute bottom-0 right-0 font-spartan" style="border-radius: 7px 0 0 0;">
-			    		26 - 04 - 2020
-			    	</div>
-
-		    		<a href="#" class="header-read-more p-4 hover:bg-red-400 text-red-400 hover:text-white border-2 border-red-400 font-bold rounded transition duration-500 mt-8 mb-8">
-		    			READ MORE
-		    		</a>
-
-		    	</div>
-	    	</div>
-		</div>
+		@endforeach
 
 	</div>
 
@@ -120,7 +61,7 @@
 						{{$article->category->name}}
 					</div>
 					<div class="popular-tag-card-count absolute top-0 right-0 m-2 ml-4 p-1 px-3 text-white font-bold" style="border-radius: 20px;background-color: rgba(0,0,0,0.1);transition: all 0.5s;">
-						{{$article->counter}} Views
+						{{$article->counter}} <span class="psi-eye-visible pl-2 text-xl"></span>
 					</div>
 					<div class="read-button-popular absolute bg-black bg-opacity-50 text-white border-2 border-transparent transition duration-500 rounded font-bold" style="top: 50%;left: 50%;transform: translate(-50%,-50%);text-align: center;opacity: 0;"><a href="/article-site/{{ $article->slug }}" class="p-4 px-8" style="display: block;">READ</a></div>
 				</div>
@@ -155,7 +96,7 @@
 					<div class="latest-article-card mb-4 mt-1" data-aos="zoom-in" data-aos-delay="{{ $article->id*100 }}">
 						<div class="latest-article-card-image rounded-lg bg-gray-200" style="background-image: url('/img/{{ $article->image }}');background-size: cover;background-position: center;"></div>
 						<div class="font-bold p-4">
-							<p class="text-sm py-1 text-gray-500 font-poppins"><a href="#">{{$article->user->name}}</a> | {{$article->created_at}}</p>
+							<p class="text-sm py-1 text-gray-500 font-poppins"><a href="#">{{$article->user->name}}</a> | {{$article->created_at}} <span class="psi-eye-visible text-2xl pl-4 pr-1"></span> {{ $article->counter }}</p>
 							<h1 class="latest-article-card-title py-2 font-spartan"><a href="/article-site/{{ $article->slug }}">{{ $article->title }}</a></h1>
 							<p class="font-light text-sm font-didact" style="text-indent: 20px;width: 100%;">{{ Str::words($article->content, 15, ' ...') }}</p>
 							<!-- <p class="font-light text-sm font-didact" style="text-indent: 20px;width: 100%;">{{ $article->content }}</p> -->
