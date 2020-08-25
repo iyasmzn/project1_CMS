@@ -11,6 +11,6 @@ class Tag extends Model
     ];
     public function article()
     {
-        return $this->hasMany('App\Model\Article');
+        return $this->belongsToMany('App\Model\Article');
     }
 }

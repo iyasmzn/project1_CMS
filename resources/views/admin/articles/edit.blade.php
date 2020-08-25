@@ -9,20 +9,9 @@
 	            <label class="col-sm-1 control-label text-left" for="demo-hor-inputemail">Creator</label>
 	            <div class="col-sm-5">
 
-	            	<select id="demo-select2" class="demo_select2 form-control" name="user_id">
-
-						@foreach($users as $user)
-							@if($user->id == $article->user_id)
-								<option value="{{ $user->id }}" selected>{{ $user->name }}</option>
-
-							@else
-
-								<option value="{{ $user->id }}">{{ $user->name }}</option>
-
-							@endif
-						@endforeach
-
-	            	</select>
+    					<select id="demo-select2" class="demo_select2 form-control" name="user_id" >
+    						<option value="{{ Auth::user()->id }}">{{ Auth::user()->name }}</option>
+    	            	</select>
 
 	            </div>
 	        </div>
@@ -76,10 +65,16 @@
 	    	    </div>
 	    	</div>
 	        <div class="form-group">
-	            <label class="col-sm-1 control-label text-left" for="hor-slug">Slug</label>
+	            <label class="col-sm-1 control-label text-left" for="hor-tags">Tags</label>
 	            <div class="col-sm-5">
 
-	                <input type="text" placeholder="" id="hor-slug" class="form-control" name="slug">
+	                <select id="hor-tags" class="tag-select form-control" name="tags[]" multiple="multiple">
+
+	                	@foreach($tags as $tag)
+	                	<option {{ $articlee->tag()->pluck('tag_id')->contains($tag->id) ? 'selected': '' }} >{{ $tag->name }}</option>
+	                	@endforeach
+
+	                </select>
 
 	            </div>
 	        </div>

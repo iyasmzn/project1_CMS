@@ -60,9 +60,11 @@
 	            <label class="col-sm-1 control-label text-left" for="hor-tags">Tags</label>
 	            <div class="col-sm-5">
 
-	                <select id="hor-tags" class="form-control" name="slug">
+	                <select id="hor-tags" class="tag-select form-control" name="tags[]" multiple="multiple">
 
-	                	<option></option>
+	                	@foreach($tags as $tag)
+	                	<option>{{ $tag->name }}</option>
+	                	@endforeach
 
 	                </select>
 

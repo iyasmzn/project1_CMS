@@ -14,7 +14,7 @@ class TagSeeder extends Seeder
     public function run()
     {
         $faker = Factory::create('en_US');
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             Tag::create([
                 'name' => $faker->unique()->word,
             ]);

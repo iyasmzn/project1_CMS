@@ -17,4 +17,12 @@ class Article extends Model
     {
         return $this->belongsTo('App\Model\User');
     }
+    public function comment()
+    {
+        return $this->hasMany('App\Model\Comment');
+    }
+    public function tag()
+    {
+        return $this->belongsToMany('App\Model\Tag');
+    }
 }

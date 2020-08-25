@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Article;
 use App\Model\Category;
 use App\Model\User;
+use App\Model\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -25,7 +26,8 @@ class ArticleController extends Controller
     {
         $users      = User::all();
         $categories = Category::all();
-        return view('admin.articles.create', compact('users', 'categories'));
+        $tags = Tag::all();
+        return view('admin.articles.create', compact('users', 'categories', 'tags'));
     }
     public function store(Request $request)
     {
@@ -36,16 +38,31 @@ class ArticleController extends Controller
         $request->merge([
             'slug' => $slug,
         ]);
-        $this->model->create($request->all());
+        $artt = $this->model->create($request->all());
+        $taggs = collect([]);
+        foreach ($request->tags as $tag) {
+            if ($searchTag = Tag::where('name', '=', $tag)->first()) {
+                $targetTag = $searchTag->id;
+            } else {
+
+                $targetTag = Tag::create([
+                    'name' => $tag,
+                ])->id;
+            }
+            $taggs->push($targetTag);
+        }
+        $artt->tag()->sync($taggs);
+
         return redirect(route('admin.articles.index'));
     }
     public function edit($id)
     {
         $articles   = Article::all();
         $categories = Category::all();
-        $users      = User::all();
+        $tags       = Tag::all();
         $article    = $this->model->find($id);
-        return view(('admin.articles.edit'), compact('articles', 'article', 'categories', 'users'));
+        $articlee   = $article;
+        return view(('admin.articles.edit'), compact('articles', 'article', 'categories', 'tags', 'articlee'));
     }
     public function update(Request $request, $id)
     {
@@ -59,6 +76,19 @@ class ArticleController extends Controller
             'slug' => $slug,
         ]);
         $model->update($request->all());
+        $taggs = collect([]);
+        foreach ($request->tags as $tag) {
+            if ($searchTag = Tag::where('name', '=', $tag)->first()) {
+                $targetTag = $searchTag->id;
+            } else {
+
+                $targetTag = Tag::create([
+                    'name' => $tag,
+                ])->id;
+            }
+            $taggs->push($targetTag);
+        }
+        $model->tag()->sync($taggs);
         return redirect(route('admin.articles.index'));
     }
     public function delete($id)
