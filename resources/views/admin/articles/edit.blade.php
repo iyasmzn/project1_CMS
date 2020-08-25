@@ -71,7 +71,7 @@
 	                <select id="hor-tags" class="tag-select form-control" name="tags[]" multiple="multiple">
 
 	                	@foreach($tags as $tag)
-	                	<option {{ $articlee->tag()->pluck('tag_id')->contains($tag->id) ? 'selected': '' }} >{{ $tag->name }}</option>
+	                	<option>{{ $tag->name }}</option>
 	                	@endforeach
 
 	                </select>

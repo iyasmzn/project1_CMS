@@ -36,50 +36,99 @@
     <!---------------------------------->
 
     <div class="row">
-        @foreach($users as $user)
-        <div class="col-sm-4 col-md-3">
-            <!-- Contact Widget -->
-            <!---------------------------------->
-            <div class="panel pos-rel">
-                <div class="widget-control text-right">
-                    <div class="btn-group dropdown">
-                        <a href="#" class="dropdown-toggle btn btn-trans" data-toggle="dropdown" aria-expanded="false"><i class="psi-dot-vertical icon-lg"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-right" style="">
-                            <li><a href="/admin/users/edit/{{ $user->id }}"><i class="icon-lg icon-fw psi-pen-5"></i> Edit</a></li>
-                            <li>
-                                <form action="/admin/users/delete/{{ $user->id }}" method="post">
-                                   @csrf @method('DELETE')
-                                   <button><i class="icon-lg icon-fw pli-recycling"></i> Remove</button>
-                                </form>
-                            </li>
-                            <li class="divider"></li>
-                            <li><a href="/admin/users/profile/{{ $user->id }}"><i class="icon-lg icon-fw pli-calendar-4"></i> View Details</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="pad-all">
-                    <div class="media pad-ver">
-                        <div class="media-left">
-                            <a href="#" class="box-inline"><div alt="Profile Picture" class="img-md img-circle" style="background-image: url('{{ asset("/img/$user->photo") }}');background-size: cover;background-position: center;background-color: none;"></div></a>
-                        </div>
-                        <div class="media-body pad-top">
-                            <a href="#" class="box-inline">
-                                <span class="text-lg text-semibold text-main">{{ $user->name }}</span>
-                                <p class="text-sm">Freelance</p>
-                            </a>
-                        </div>
-                    </div>
-                    <p class="pad-btm bord-bt text-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean massa.</p>
-                    <div class="text-center pad-to">
-                        <div class="btn-group">
-                            <a href="/admin/users/edit/{{ $user->id }}" class="btn btn-sm btn-default"><i class="pli-pen-5 icon-lg icon-fw"></i> Edit</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!---------------------------------->
+        @if(auth()->user()->role == 'author' || auth()->user()->role == 'editor')
 
-        </div>
-        @endforeach
+
+            <div class="col-sm-4 col-md-3">
+                <!-- Contact Widget -->
+                <!---------------------------------->
+                <div class="panel pos-rel">
+                    <div class="widget-control text-right">
+                        <div class="btn-group dropdown">
+                            <a href="#" class="dropdown-toggle btn btn-trans" data-toggle="dropdown" aria-expanded="false"><i class="psi-dot-vertical icon-lg"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-right" style="">
+                                <li><a href="/admin/users/edit/{{ auth()->user()->id }}"><i class="icon-lg icon-fw psi-pen-5"></i> Edit</a></li>
+                                <li>
+                                    <form action="/admin/users/delete/{{ auth()->user()->id }}" method="post">
+                                       @csrf @method('DELETE')
+                                       <button><i class="icon-lg icon-fw pli-recycling"></i> Remove</button>
+                                    </form>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="/admin/users/profile/{{ auth()->user()->id }}"><i class="icon-lg icon-fw pli-calendar-4"></i> View Details</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pad-all">
+                        <div class="media pad-ver">
+                            <div class="media-left">
+                                <a href="#" class="box-inline"><div alt="Profile Picture" class="img-md img-circle" style="background-image: url('/img/{{auth()->user()->photo}}');background-size: cover;background-position: center;background-color: none;"></div></a>
+                            </div>
+                            <div class="media-body pad-top">
+                                <a href="#" class="box-inline">
+                                    <span class="text-lg text-semibold text-main">{{ auth()->user()->name }}</span>
+                                    <p class="text-sm">Freelance</p>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="pad-btm bord-bt text-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean massa.</p>
+                        <div class="text-center pad-to">
+                            <div class="btn-group">
+                                <a href="/admin/users/edit/{{ auth()->user()->id }}" class="btn btn-sm btn-default"><i class="pli-pen-5 icon-lg icon-fw"></i> Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---------------------------------->
+
+            </div>
+
+        @else
+            @foreach($users as $user)
+            <div class="col-sm-4 col-md-3">
+                <!-- Contact Widget -->
+                <!---------------------------------->
+                <div class="panel pos-rel">
+                    <div class="widget-control text-right">
+                        <div class="btn-group dropdown">
+                            <a href="#" class="dropdown-toggle btn btn-trans" data-toggle="dropdown" aria-expanded="false"><i class="psi-dot-vertical icon-lg"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-right" style="">
+                                <li><a href="/admin/users/edit/{{ $user->id }}"><i class="icon-lg icon-fw psi-pen-5"></i> Edit</a></li>
+                                <li>
+                                    <form action="/admin/users/delete/{{ $user->id }}" method="post">
+                                       @csrf @method('DELETE')
+                                       <button><i class="icon-lg icon-fw pli-recycling"></i> Remove</button>
+                                    </form>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="/admin/users/profile/{{ $user->id }}"><i class="icon-lg icon-fw pli-calendar-4"></i> View Details</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pad-all">
+                        <div class="media pad-ver">
+                            <div class="media-left">
+                                <a href="#" class="box-inline"><div alt="Profile Picture" class="img-md img-circle" style="background-image: url('/img/{{ $user->photo }}');background-size: cover;background-position: center;background-color: none;"></div></a>
+                            </div>
+                            <div class="media-body pad-top">
+                                <a href="#" class="box-inline">
+                                    <span class="text-lg text-semibold text-main">{{ $user->name }}</span>
+                                    <p class="text-sm">Freelance</p>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="pad-btm bord-bt text-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean massa.</p>
+                        <div class="text-center pad-to">
+                            <div class="btn-group">
+                                <a href="/admin/users/edit/{{ $user->id }}" class="btn btn-sm btn-default"><i class="pli-pen-5 icon-lg icon-fw"></i> Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---------------------------------->
+
+            </div>
+            @endforeach
+        @endif
     </div>
 @endsection

@@ -115,19 +115,21 @@
 	<div class="pt-16 bg-white" style="background-image: url('https://images2.alphacoders.com/105/thumb-1920-1053867.jpg');background-attachment: fixed;">
 		<div class="sm:container mx-auto">
 			<div class="flex justify-between">
-				<div><h1 class="mb-8 text-3xl font-bold font-spartan text-white">Related Article</h1></div>				
+				<div><h1 class="mb-8 text-3xl font-bold font-spartan text-white">Popular Articles</h1></div>				
 				<div> 
 					<!-- KOSONG -->
 				</div>
 			</div>
 			<div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 my-4">
 
-					@foreach($articles as $article)
+					@foreach($populars as $article)
 					<div class="latest-article-card mb-4 mt-1 border-gray-300 shadow-md">
-						<div class="latest-article-card-image bg-gray-200 rounded-lg border-2 border-white" style="background-image: url('https://images.alphacoders.com/109/thumb-1920-1097505.png');background-size: cover;background-position: center;"></div>
+						<div class="latest-article-card-image bg-gray-200 rounded-lg border-2 border-white" style="background-image: url('https://images.alphacoders.com/109/thumb-1920-1097505.png');background-size: cover;background-position: center;">
+							<a href="/article-site/{{ $article->slug }}" style="display: block;width: 100%;height: 100%;"></a>
+						</div>
 						<div class="font-bold p-4 text-white">
-							<p class="text-sm py-1 text-gray-500 font-poppins"><a href="#">{{ $article->user->name }}</a> | {{ Str::words($article->created_at, 1, '') }}</p>
-							<h1 class="latest-article-card-title py-2 font-spartan font-bold text-xl">{{ $article->title }}</h1>
+							<p class="text-sm py-1 text-gray-500 font-poppins"><a href="#" class="pr-2">{{ $article->user->name }}</a> | <span class="psi-eye-visible text-xl pr-2 pl-4"></span>{{ $article->counter }}</p>
+							<a href="/article-site/{{ $article->slug }}" class="latest-article-card-title py-2 font-spartan font-bold text-xl">{{ $article->title }}</a>
 						</div>
 					</div>
 					@endforeach

@@ -15,12 +15,13 @@ class UserController extends Controller
     }
     public function index()
     {
-        // $this->authorize('viewAny', $this->model);
+        $this->authorize('viewAny', $this->model);
         $users = $this->model->all();
         return view('admin.users.index', compact('users'));
     }
     public function create()
     {
+        $this->authorize('create', $this->model);
         return view('admin.users.create');
     }
     public function store(Request $request)
@@ -37,6 +38,7 @@ class UserController extends Controller
     }
     public function edit($id)
     {
+        $this->authorize('update', $this->model);
         $user = $this->model->find($id);
         return view(('admin.users.edit'), compact('user'));
     }
@@ -56,6 +58,7 @@ class UserController extends Controller
     }
     public function delete($id)
     {
+        $this->authorize('delete', $this->model);
         $model = $this->model->find($id);
         $this->removeImage($model->photo);
         $model->delete();

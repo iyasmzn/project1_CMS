@@ -38,20 +38,21 @@ class ArticleController extends Controller
         $request->merge([
             'slug' => $slug,
         ]);
-        $artt = $this->model->create($request->all());
-        $taggs = collect([]);
-        foreach ($request->tags as $tag) {
-            if ($searchTag = Tag::where('name', '=', $tag)->first()) {
-                $targetTag = $searchTag->id;
-            } else {
+        $this->model->create($request->all());
+        // $artt = $this->model->create($request->all());
+        // $taggs = collect([]);
+        // foreach ($request->tags as $tag) {
+        //     if ($searchTag = Tag::where('name', '=', $tag)->first()) {
+        //         $targetTag = $searchTag->id;
+        //     } else {
 
-                $targetTag = Tag::create([
-                    'name' => $tag,
-                ])->id;
-            }
-            $taggs->push($targetTag);
-        }
-        $artt->tag()->sync($taggs);
+        //         $targetTag = Tag::create([
+        //             'name' => $tag,
+        //         ])->id;
+        //     }
+        //     $taggs->push($targetTag);
+        // }
+        // $artt->tag()->sync($taggs);
 
         return redirect(route('admin.articles.index'));
     }
@@ -76,19 +77,19 @@ class ArticleController extends Controller
             'slug' => $slug,
         ]);
         $model->update($request->all());
-        $taggs = collect([]);
-        foreach ($request->tags as $tag) {
-            if ($searchTag = Tag::where('name', '=', $tag)->first()) {
-                $targetTag = $searchTag->id;
-            } else {
+        // $taggs = collect([]);
+        // foreach ($request->tags as $tag) {
+        //     if ($searchTag = Tag::where('name', '=', $tag)->first()) {
+        //         $targetTag = $searchTag->id;
+        //     } else {
 
-                $targetTag = Tag::create([
-                    'name' => $tag,
-                ])->id;
-            }
-            $taggs->push($targetTag);
-        }
-        $model->tag()->sync($taggs);
+        //         $targetTag = Tag::create([
+        //             'name' => $tag,
+        //         ])->id;
+        //     }
+        //     $taggs->push($targetTag);
+        // }
+        // $model->tag()->sync($taggs);
         return redirect(route('admin.articles.index'));
     }
     public function delete($id)

@@ -21,17 +21,6 @@ class ArticlePolicy
         return true;
     }
 
-    /**
-     * Determine whether the user can view the model.
-     *
-     * @param  \App\Model\User  $user
-     * @param  \App\Model\Article  $article
-     * @return mixed
-     */
-    public function view(User $user, Article $article)
-    {
-        //
-    }
 
     /**
      * Determine whether the user can create models.

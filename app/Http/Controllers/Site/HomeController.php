@@ -22,8 +22,9 @@ class HomeController extends Controller
         $articles = Article::latest()->paginate(12);
         $popular = Article::orderBy('counter', 'desc')->take(10)->get();
         $mostPopular = Article::orderBy('counter', 'desc')->take(5)->get();
-        $categories   = DB::table('categories')->get();
-        return view('site.index', compact('categories', 'articles', 'popular', 'mostPopular'));
+        $categories   = DB::table('categories')->take(4)->get();
+        $tags   = DB::table('tags')->take(6)->get();
+        return view('site.index', compact('categories', 'articles', 'popular', 'mostPopular', 'tags'));
     }
     public function showArticle($slug)
     {
@@ -32,9 +33,11 @@ class HomeController extends Controller
         $article = Article::where('slug', '=', $slug)->first();
         $article->increment('counter');
         // $article = Article::find(); 
-        $articles   = Article::paginate(8);
+        // $articles   = Article::paginate(8);
         $comments   = Comment::where('article_id', $article->id)->latest()->paginate(5);
-        $categories   = DB::table('categories')->get();
-        return view('site.showArticle', compact('categories', 'article','articles', 'comments'));
+        $categories   = DB::table('categories')->take(4)->get();
+        $populars = Article::orderBy('counter', 'desc')->take(8)->get();
+        $tags   = DB::table('tags')->take(6)->get();
+        return view('site.showArticle', compact('categories', 'article','populars', 'comments', 'tags'));
     }
 }
