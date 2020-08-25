@@ -111,7 +111,7 @@
 
 				@foreach($popular as $article)
 				<div class="popular-card bg-white border-2 border-gray-300 relative font-bold" style="width: 300px;overflow: hidden;border-radius: 7px;" data-aos="fade-up">
-					<div class="popular-image w-full bg-black" style="height: 200px;background-image: url('https://images3.alphacoders.com/206/thumb-1920-206999.jpg');filter: brightness(50%);transition: all 0.5s;"></div>
+					<div class="popular-image w-full bg-black" style="height: 200px;background-image: url('/img/{{ $article->image }}');filter: brightness(50%);transition: all 0.5s;"></div>
 					<div class="p-4">
 						<h2 class="text-gray-500 font-spartan">{{$article->user->name}}</h2>
 						<h1 class="popular-card-title font-poppins">{{ $article->title }}</h1>
