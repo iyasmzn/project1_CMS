@@ -93,8 +93,8 @@
 			<div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 my-4">
 
 				@foreach($articles as $article)
-					<div class="latest-article-card mb-4 mt-1" data-aos="zoom-in" data-aos-delay="{{ $article->id*100 }}">
-						<div class="latest-article-card-image rounded-lg bg-gray-200" style="background-image: url('/img/{{ $article->image }}');background-size: cover;background-position: center;"></div>
+					<div class="latest-article-card mb-4 mt-1" data-aos="zoom-in">
+						<div class="latest-article-card-image rounded-lg bg-gray-200" style="background-image: url('/img/{{ $article->image }}');background-size: cover;background-position: center;"><a style="display: block;background-color: rgba(0,0,0,0);width: 100%;height: 100%;" href="/article-site/{{ $article->slug }}"></a></div>
 						<div class="font-bold p-4">
 							<p class="text-sm py-1 text-gray-500 font-poppins"><a href="#">{{$article->user->name}}</a> | {{$article->created_at}} <span class="psi-eye-visible text-2xl pl-4 pr-1"></span> {{ $article->counter }}</p>
 							<h1 class="latest-article-card-title py-2 font-spartan"><a href="/article-site/{{ $article->slug }}">{{ $article->title }}</a></h1>

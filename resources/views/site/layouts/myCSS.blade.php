@@ -113,8 +113,9 @@
 	}
 	.latest-article-card-image:hover {
 		transform: scale(1.05);
-		box-shadow: 0px 0px 15px white;
+		box-shadow: 0px 0px 15px gray;
 		cursor: pointer;
+		filter: brightness(70%);
 	}
 	.latest-article-card-title:hover {
 		transition: all 0.3s;
