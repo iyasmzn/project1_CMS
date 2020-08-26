@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\Model\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Auth\Access\Response;
 
 class UserPolicy
 {
@@ -28,7 +29,9 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        return $user->role == 'admin';
+        return $user->role == 'admin'
+        ? Response::allow()
+        : Response::deny('You cant create user from this user.');
     }
 
     /**

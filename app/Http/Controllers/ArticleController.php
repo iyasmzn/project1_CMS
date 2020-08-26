@@ -19,7 +19,14 @@ class ArticleController extends Controller
     }
     public function index()
     {
-        $articles = $this->model->get();
+        $this->authorize('viewAny', $this->model);
+
+        if (Auth::user()->role == 'author') {
+            $articles = $this->model->where('user_id', Auth::user()->id)->get();
+        } else {
+            $articles = $this->model->get();
+        }
+
         return view('admin.articles.index', compact('articles'));
     }
     public function create()
