@@ -23,7 +23,7 @@
 <!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
 
 <body>
-    <div id="container" class="cls-container">
+    <div id="container" class="cls-container" style="background-image: url('/images/login.png');background-size: cover;background-position: center;">
 
 
 		<!-- BACKGROUND IMAGE -->
@@ -34,7 +34,7 @@
 		<!-- REGISTRATION FORM -->
 		<!--===================================================-->
 		<div class="cls-content">
-		    <div class="cls-content-lg panel">
+		    <div class="cls-content-lg panel" style="background-color: rgba(236,240,245,0.7);">
 		        <div class="panel-body">
 		            <div class="mar-ver pad-btm">
 		                <h1 class="h3">Create a New Account</h1>
