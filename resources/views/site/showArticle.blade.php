@@ -16,6 +16,7 @@
 
 	<div class="bg-gray-200 pb-16 pt-8" style="box-shadow: 0px -5px 15px gray">
 		<div class="md:container mx-auto bg-white rounded-lg p-8 px-16">			
+
 			<h1 class="text-6xl font-bold">{{ $article->title }}</h1>
 			<div class="font-bold font-spartan text-gray-500 text-sm pt-4 pb-2" style="text-transform: uppercase;">
 				<span class="pr-2"><i class="psi-pie-chart-3 text-xl pr-1" style="transform: translateY(-2.5px);"></i>{{$article->category->name}}</span>|
@@ -26,10 +27,20 @@
 				<span class="pl-2"><i class="psi-clock text-xl pr-1" style="transform: translateY(-2.5px);"></i>{{ date('H:s:i', strtotime($article->created_at)) }}</span>
 				<i class="psi-record-3 px-2" style="font-size: 10px;transform: translateY(-2.5px);"></i>
 				<span class="pl-2"><i class="psi-eye-visible text-xl pr-1" style="transform: translateY(-2.5px);"></i>{{ $article->counter }}</span>
+				<i class="psi-record-3 px-2" style="font-size: 10px;transform: translateY(-2.5px);"></i>
+				<span class="pl-2"><i class="psi-speech-bubble text-xl pr-1" style="transform: translateY(-2.5px);"></i>{{ count($comments) }}</span>
 			</div>
 			<p class="text-xl mb-4" style="text-indent: 50px;">
 				{!! $article->content !!}
 			</p>
+			<div id="tags" class="font-bold font-didact text-gray-500 text-sm pt-4 pb-2" style="text-transform: uppercase;">
+				<h1 class="text-gray-500">Tags</h1>
+				<hr class=" mb-4">
+				@foreach($article->tag as $tags)
+					<a href="#tags" class="text-white bg-red-500 p-2 px-4 rounded-md"><i class="psi-tag pr-2 text-xl" style="transform: translateY(-1px);"></i>{{ $tags->name }}</a>
+				@endforeach
+			</div>
+
 		</div>
 		<div class="md:container mx-auto bg-white rounded-lg p-2 px-8 mt-16" style="height: 5px;">
 			<div class="flex justify-between" style="transform: translateY(-27px);">

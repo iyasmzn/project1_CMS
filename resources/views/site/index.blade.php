@@ -93,7 +93,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 my-4">
+			<div id="latestArticle" class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 my-4">
 
 				@foreach($articles as $article)
 					<div class="latest-article-card mb-4 mt-1" data-aos="zoom-in">
@@ -115,6 +115,12 @@
 							</p>
 							<h1 class="latest-article-card-title py-2 font-spartan"><a href="/article-site/{{ $article->slug }}">{{ $article->title }}</a></h1>
 							<div class="font-light text-sm font-didact" style="text-indent: 20px;width: 100%;">{!! Str::words($article->content, 15, ' ...') !!}</div>
+							<hr class="my-2">
+							<div>
+								@foreach($article->tag as $tags)
+									<a href="#latestArticle" class="text-gray-500" style="font-size: 0.8em"><i class="psi-tag pr-1"></i>{{ $tags->name }}</a>
+								@endforeach
+							</div>
 							<!-- <p class="font-light text-sm font-didact" style="text-indent: 20px;width: 100%;">{{ $article->content }}</p> -->
 						</div>
 					</div>
