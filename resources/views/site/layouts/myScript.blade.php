@@ -20,7 +20,7 @@
             items: 1,
             smartSpeed: 200,
             autoplay:true,
-            autoplayTimeout:3000,
+            autoplayTimeout:4500,
         });
         $('#popular-carousel').owlCarousel({
             loop:true,
