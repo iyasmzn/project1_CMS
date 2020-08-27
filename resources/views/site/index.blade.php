@@ -19,7 +19,9 @@
 
 		    		<h1 class="text-4xl my-5 mt-12">{{ $article->title }}</h1> 
 		    		
-		    		<p class="mb-8">{{ Str::words($article->content, 20, ' ...') }}</p>
+		    		<div class="mb-8">
+		    			<p>{!! Str::words($article->content, 20, '.') !!}</p>
+		    		</div>
 
 			    	<div class="header-info-tag p-2 bg-red-600 text-white bg-opacity-50 absolute top-0 font-bold">
 			    		TOP VIEW
@@ -98,7 +100,7 @@
 						<div class="font-bold p-4">
 							<p class="text-sm py-1 text-gray-500 font-poppins"><a href="#">{{$article->user->name}}</a> | {{$article->created_at}} <span class="psi-eye-visible text-2xl pl-4 pr-1"></span> {{ $article->counter }}</p>
 							<h1 class="latest-article-card-title py-2 font-spartan"><a href="/article-site/{{ $article->slug }}">{{ $article->title }}</a></h1>
-							<p class="font-light text-sm font-didact" style="text-indent: 20px;width: 100%;">{{ Str::words($article->content, 15, ' ...') }}</p>
+							<div class="font-light text-sm font-didact" style="text-indent: 20px;width: 100%;">{!! Str::words($article->content, 15, ' ...') !!}</div>
 							<!-- <p class="font-light text-sm font-didact" style="text-indent: 20px;width: 100%;">{{ $article->content }}</p> -->
 						</div>
 					</div>
