@@ -18,12 +18,14 @@
 		<div class="md:container mx-auto bg-white rounded-lg p-8 px-16">			
 			<h1 class="text-6xl font-bold">{{ $article->title }}</h1>
 			<div class="font-bold font-spartan text-gray-500 text-sm pt-4 pb-2" style="text-transform: uppercase;">
-				<span class="pr-2">{{$article->category->name}}</span>|
-				<span class="pl-2"><a href="">{{$article->user->name}}</a></span>
+				<span class="pr-2"><i class="psi-pie-chart-3 text-xl pr-1" style="transform: translateY(-2.5px);"></i>{{$article->category->name}}</span>|
+				<span class="pl-2"><i class="psi-user text-xl pr-1" style="transform: translateY(-2.5px);"></i><a href="">{{$article->user->name}}</a></span>
 				<i class="psi-record-3 px-2" style="font-size: 10px;transform: translateY(-2.5px);"></i>
-				<span class="pl-2">{{ Str::words($article->created_at, 1, '') }}</span>
+				<span class="pl-2"><i class="psi-calendar text-xl pr-1" style="transform: translateY(-2.5px);"></i>{{ date('l - F d, Y', strtotime($article->created_at)) }}</span>
 				<i class="psi-record-3 px-2" style="font-size: 10px;transform: translateY(-2.5px);"></i>
-				<span class="pl-2">{{ $article->counter }}</span>
+				<span class="pl-2"><i class="psi-clock text-xl pr-1" style="transform: translateY(-2.5px);"></i>{{ date('H:s:i', strtotime($article->created_at)) }}</span>
+				<i class="psi-record-3 px-2" style="font-size: 10px;transform: translateY(-2.5px);"></i>
+				<span class="pl-2"><i class="psi-eye-visible text-xl pr-1" style="transform: translateY(-2.5px);"></i>{{ $article->counter }}</span>
 			</div>
 			<p class="text-xl mb-4" style="text-indent: 50px;">
 				{!! $article->content !!}
@@ -70,12 +72,12 @@
 					<table class="w-full font-spartan">
 						<thead>
 							<tr>
-								<td width="50"><span class="text-gray-500">No </span></td>
+								<td width="160"><span class="text-gray-500"><i class="psi-clock pr-1 text-xl" style="transform: translateY(-3px);"></i>Time </span></td>
 								<td width="200" class="p-4" style="text-transform: capitalize;">
-									<span class="text-gray-500">Name : </span><br>
+									<span class="text-gray-500"><i class="psi-user text-xl pr-1" style="transform: translateY(-3px);"></i> Name : </span><br>
 								</td>
 								<td>
-									<span class="text-gray-500">Comments : </span><br>
+									<span class="text-gray-500"><i class="psi-speech-bubble pr-1 text-xl" style="transform: translateY(-3px);"></i>Comments : </span><br>
 								</td>
 								<td width="100"></td>
 							</tr>
@@ -84,7 +86,7 @@
 
 						@foreach($comments as $comment)
 							<tr class="border-b-2 border-gray-300">
-								<td width="50">{{ $no++ }}</td>
+								<td class="text-gray-500" style="font-size: 0.7em;"><span class="psi-calendar text-xl pr-2" style="transform: translateY(-3px);"></span>{{ date('d/m/Y - H:s', strtotime($comment->created_at)) }}</td>
 								<td width="200" class="p-4" style="text-transform: capitalize;">
 									{{ $comment->name }}
 								</td>
@@ -115,20 +117,21 @@
 	<div class="pt-16 bg-white" style="background-image: url('https://images2.alphacoders.com/105/thumb-1920-1053867.jpg');background-attachment: fixed;">
 		<div class="sm:container mx-auto">
 			<div class="flex justify-between">
-				<div><h1 class="mb-8 text-3xl font-bold font-spartan text-white">Popular Articles</h1></div>				
+				<div><h1 class="mb-8 text-3xl font-bold font-spartan text-white">Related Articles</h1></div>				
 				<div> 
 					<!-- KOSONG -->
 				</div>
 			</div>
 			<div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 my-4">
 
-					@foreach($populars as $article)
+					@foreach($relatedArticles as $article)
 					<div class="latest-article-card mb-4 mt-1 border-gray-300 shadow-md">
-						<div class="latest-article-card-image bg-gray-200 rounded-lg border-2 border-white" style="background-image: url('https://images.alphacoders.com/109/thumb-1920-1097505.png');background-size: cover;background-position: center;">
+						<div class="latest-article-card-image bg-gray-200 rounded-lg border-2 border-white" style="background-image: url('/img/{{ $article->image }}');background-size: cover;background-position: center;">
+							<a href="#" class="absolute top-20 p-1 px-2 bg-black hover:bg-opacity-50 text-white rounded-md transition duration-300" style="font-weight: bold;"><i class="psi-pie-chart-3 pr-1 text-xl" style="transform: translateY(-2px);"></i>{{ $article->category->name }}</a>
 							<a href="/article-site/{{ $article->slug }}" style="display: block;width: 100%;height: 100%;"></a>
 						</div>
 						<div class="font-bold p-4 text-white">
-							<p class="text-sm py-1 text-gray-500 font-poppins"><a href="#" class="pr-2">{{ $article->user->name }}</a> | <span class="psi-eye-visible text-xl pr-2 pl-4"></span>{{ $article->counter }}</p>
+							<p class="text-sm py-1 text-gray-500 font-poppins"><a href="#" class="pr-2"><i class="psi-user text-md pr-2" style="transform: translateY(-1px);"></i>{{ $article->user->name }}</a> | <span class="psi-eye-visible text-xl pr-2 pl-4"></span>{{ $article->counter }}</p>
 							<a href="/article-site/{{ $article->slug }}" class="latest-article-card-title py-2 font-spartan font-bold text-xl">{{ $article->title }}</a>
 						</div>
 					</div>

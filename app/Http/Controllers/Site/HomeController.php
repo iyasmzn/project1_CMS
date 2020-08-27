@@ -37,7 +37,8 @@ class HomeController extends Controller
         $comments   = Comment::where('article_id', $article->id)->latest()->paginate(5);
         $categories   = DB::table('categories')->take(4)->get();
         $populars = Article::orderBy('counter', 'desc')->take(8)->get();
+        $relatedArticles = Article::where([['category_id', '=', $article->category_id], ['id', '!=', $article->id]])->paginate(8);
         $tags   = DB::table('tags')->take(6)->get();
-        return view('site.showArticle', compact('categories', 'article','populars', 'comments', 'tags'));
+        return view('site.showArticle', compact('categories', 'article','populars', 'comments', 'tags', 'relatedArticles'));
     }
 }

@@ -66,7 +66,7 @@
 		transition: all 1s;
 	}
 	.header-image:hover .header-image-hover {
-		transform: scale(1.2);
+		transform: scale(1.05);
 	}
 	.search-input {
 		background-color: black;
@@ -115,7 +115,7 @@
 		transform: scale(1.05);
 		box-shadow: 0px 0px 15px gray;
 		cursor: pointer;
-		filter: brightness(70%);
+		filter: brightness(120%);
 	}
 	.latest-article-card-title:hover {
 		transition: all 0.3s;

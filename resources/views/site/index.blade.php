@@ -31,7 +31,7 @@
 			    	</div>
 
 			    	<div class="header-info-date p-2 pl-4 bg-black text-white bg-opacity-50 absolute bottom-0 right-0 font-spartan" style="border-radius: 7px 0 0 0;">
-			    		{{ Str::words($article->created_at, 1, '') }}
+			    		<span class="psi-calendar text-2xl pr-2" style="transform: translateY(-3px);"></span>{{ date('l - F d, Y', strtotime($article->created_at)) }}
 			    	</div>
 
 		    		<div class="w-full text-center pb-12">
@@ -56,8 +56,9 @@
 				<div class="popular-card bg-white border-2 border-gray-300 relative font-bold" style="width: 300px;overflow: hidden;border-radius: 7px;" data-aos="fade-up">
 					<div class="popular-image w-full bg-black" style="height: 200px;background-image: url('/img/{{ $article->image }}');filter: brightness(50%);transition: all 0.5s;"></div>
 					<div class="p-4">
-						<h2 class="text-gray-500 font-spartan">{{$article->user->name}}</h2>
-						<h1 class="popular-card-title font-poppins">{{ $article->title }}</h1>
+						<h2 class="text-gray-500 font-spartan"><i class="psi-user text-xl pr-2"></i>{{$article->user->name}}</h2>
+						<h1 class="popular-card-title font-poppins pt-2">{{ $article->title }}</h1>
+						<div class="text-right text-gray-500 text-sm"><i class="psi-calendar pr-1 text-xl" style="transform: translateY(-1px);"></i>{{ date('d M Y', strtotime($article->created_at)) }}</div>
 					</div>
 					<div class="popular-tag-card absolute top-0 left-0 m-2 ml-4 p-1 px-3 text-white font-bold" style="border-radius: 20px;background-color: rgba(0,0,0,0.1);transition: all 0.5s;">
 						{{$article->category->name}}
@@ -96,9 +97,22 @@
 
 				@foreach($articles as $article)
 					<div class="latest-article-card mb-4 mt-1" data-aos="zoom-in">
-						<div class="latest-article-card-image rounded-lg bg-gray-200" style="background-image: url('/img/{{ $article->image }}');background-size: cover;background-position: center;"><a style="display: block;background-color: rgba(0,0,0,0);width: 100%;height: 100%;" href="/article-site/{{ $article->slug }}"></a></div>
+						<div class="latest-article-card-image rounded-lg bg-gray-200" style="background-image: url('/img/{{ $article->image }}');background-size: cover;background-position: center;">
+							<a href="#" class="absolute top-20 p-1 px-2 bg-black hover:bg-opacity-50 text-white rounded-lg transition duration-300 font-bold">{{ $article->category->name }}</a>
+							<a style="display: block;background-color: rgba(0,0,0,0);width: 100%;height: 100%;" href="/article-site/{{ $article->slug }}"></a>
+						</div>
 						<div class="font-bold p-4">
-							<p class="text-sm py-1 text-gray-500 font-poppins"><a href="#">{{$article->user->name}}</a> | {{$article->created_at}} <span class="psi-eye-visible text-2xl pl-4 pr-1"></span> {{ $article->counter }}</p>
+							<p class="text-sm py-1 text-gray-500 font-poppins">
+								<a href="#">
+								<span class="psi-user text-xl pr-1"></span> 
+									{{$article->user->name}}
+								</a> 
+								| 
+								<span class="psi-calendar text-xl px-1"></span> 
+								{{date('l d M Y', strtotime($article->created_at))}} 
+								<span class="psi-eye-visible text-2xl pl-4 pr-1"></span> 
+								{{ $article->counter }}
+							</p>
 							<h1 class="latest-article-card-title py-2 font-spartan"><a href="/article-site/{{ $article->slug }}">{{ $article->title }}</a></h1>
 							<div class="font-light text-sm font-didact" style="text-indent: 20px;width: 100%;">{!! Str::words($article->content, 15, ' ...') !!}</div>
 							<!-- <p class="font-light text-sm font-didact" style="text-indent: 20px;width: 100%;">{{ $article->content }}</p> -->
