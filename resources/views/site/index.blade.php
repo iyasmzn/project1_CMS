@@ -19,7 +19,7 @@
 
 		    		<h1 class="text-4xl my-5 mt-12">{{ $article->title }}</h1> 
 		    		
-		    		<p class="mb-8">{!! Str::words($article->content, 20) !!}</p>
+		    		<p class="mb-8">{{ Str::words($article->content, 20, ' ...') }}</p>
 
 			    	<div class="header-info-tag p-2 bg-red-600 text-white bg-opacity-50 absolute top-0 font-bold">
 			    		TOP VIEW
