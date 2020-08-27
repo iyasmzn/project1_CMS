@@ -51,7 +51,7 @@
 	            	<!--Summernote-->
 	            	<!--===================================================-->
 	            	<textarea id="summernote" name="content">
-	            	    <h4><span style="color: rgb(0, 0, 0); font-family: inherit; line-height: 1.1;">{{ $article->content }}</span><br></h4><h4><font color="#9c9c94"></font></h4>
+	            		{{ $article->content }}
 	            	</textarea>
 	            	<!--===================================================-->
 	            	<!-- End Summernote -->
@@ -71,7 +71,7 @@
 	                <select id="hor-tags" class="tag-select form-control" name="tags[]" multiple="multiple">
 
 	                	@foreach($tags as $tag)
-	                	<option>{{ $tag->name }}</option>
+	                	<option {{ $article->tag()->pluck('tag_id')->contains($tag->id) ? 'selected': '' }}>{{ $tag->name }}</option>
 	                	@endforeach
 
 	                </select>

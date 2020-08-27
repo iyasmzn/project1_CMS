@@ -43,7 +43,6 @@
 	            	<!--Summernote-->
 	            	<!--===================================================-->
 	            	<textarea id="summernote" name="content">
-	            	    <h4><span style="color: rgb(0, 0, 0); font-family: inherit; line-height: 1.1;"></span><br></h4><h4><font color="#9c9c94"></font></h4>
 	            	</textarea>
 	            	<!--===================================================-->
 	            	<!-- End Summernote -->
